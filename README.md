@@ -9,8 +9,8 @@
 7. Country is selected manually
 8. Credit card details are supposed to be entered manually
 9. Please validate the card details:
-  - plain check - is it a number with proper number of digits
-  - [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
+  - basic version: plain check - is it a number with proper number of digits
+  - ambitious version: [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
 10. Clicking Update should be sending (POST request) the form details [Here](https://portaireapi.herokuapp.com/test/payment)
 11. Make a pull request to this repo
 
