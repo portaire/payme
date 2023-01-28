@@ -7,7 +7,7 @@ export default [
         element: <AgentList />
     },
     {
-        path: "/agent/:id",
+        path: "/agents/:id",
         element: <AgentView />
     },
 ]

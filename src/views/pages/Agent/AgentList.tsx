@@ -3,6 +3,9 @@ import { getAgentList } from 'services/portaire/api/agent';
 
 import agentListData from 'fakeData/agentListData';
 
+import { Container, Section } from 'views/_ui';
+import AgentListIndex from './_components/AgentListIndex';
+
 function AgentList() {
 
     const [agentList, setAgentList]:any = useState([])
@@ -21,9 +24,15 @@ function AgentList() {
     useEffect(() => {
         fetchAgentList()
     }, [])
-
+    
     return (
-        <div> Agent List</div>
+        <Section id="detectives" className="my-24">
+        <Container className="max-w-7xl">
+      
+            <AgentListIndex items={agentList} />
+
+        </Container>
+        </Section>
     )
 }
 
