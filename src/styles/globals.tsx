@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStylesheet = createGlobalStyle`
   ${reset}
@@ -23,10 +23,6 @@ const GlobalStylesheet = createGlobalStyle`
     font-family: "Object Sans";
     src: url("/fonts/ObjectSans-Regular.otf");
     font-weight: 400;
-  }
-
-  p {
-      ${({ theme }) => theme.typography("modal-title")};
   }
 `;
 

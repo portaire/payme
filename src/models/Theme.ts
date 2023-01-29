@@ -1,11 +1,7 @@
-import { Breakpoints } from "./Breakpoints";
+import { Breakpoints } from './Breakpoints';
 
-type RadiusOptions = "sm" | "complete";
-type TypographyOptions =
-  | "modal-title"
-  | "button"
-  | "label"
-  ;
+type RadiusOptions = 'sm' | 'complete';
+type TypographyOptions = 'modal-title' | 'button' | 'label';
 
 export interface Theme {
   colors: {
@@ -19,7 +15,7 @@ export interface Theme {
   };
   radius: (type: RadiusOptions) => string | null;
   spacing: (value: number) => string | null;
-  fontSize: (value: number) => string | null;
+  fontSize: (value: number) => string;
   minBp: (breakpoint: Breakpoints) => string | null;
   typography: (type: TypographyOptions) => string | null;
 }

@@ -1,6 +1,7 @@
-import { Theme } from "@models/Theme";
-import "styled-components";
+/* eslint-disable @typescript-eslint/no-empty-interface */
+import { Theme } from '@models/Theme';
+import 'styled-components';
 
-declare module "styled-components" {
-  export interface DefaultTheme extends Theme
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
 }

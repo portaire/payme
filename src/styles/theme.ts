@@ -1,5 +1,5 @@
-import { Breakpoints } from "@models/Breakpoints";
-import { Theme } from "@models/Theme";
+import { Breakpoints } from '@models/Breakpoints';
+import { Theme } from '@models/Theme';
 
 const breakpointValues: {
   [key in Breakpoints]: number;
@@ -11,7 +11,7 @@ const breakpointValues: {
 };
 
 const setBreakpoint = (breakpoint: Breakpoints) => {
-  if (typeof breakpoint === "string" && breakpoint in breakpointValues)
+  if (typeof breakpoint === 'string' && breakpoint in breakpointValues)
     return breakpointValues[breakpoint];
 
   return breakpoint;
@@ -22,20 +22,20 @@ const pxToRem = (px: number) => `${px / 16}rem`;
 
 const theme: Theme = {
   colors: {
-    primary: "#000000",
-    secondary: "#C4C4C4",
-    accent: "#E52727",
-    outline: "#0066FF",
+    primary: '#000000',
+    secondary: '#C4C4C4',
+    accent: '#E52727',
+    outline: '#0066FF',
   },
   font: {
-    main: "Object Sans, sans-serif",
+    main: 'Object Sans, sans-serif',
   },
   radius: (type) => {
     if (!type) return null;
 
     const radiusValues = {
-      sm: "3px",
-      complete: "100%",
+      sm: '3px',
+      complete: '100%',
     };
 
     return radiusValues[type];
@@ -45,16 +45,12 @@ const theme: Theme = {
 
     return pxToRem(value);
   },
-  fontSize: (value) => {
-    if (!value) return null;
-
-    return pxToRem(value);
-  },
+  fontSize: (value) => pxToRem(value),
   typography: (type) => {
     if (!type) return null;
 
     const typographyValues = {
-      "modal-title": `
+      'modal-title': `
         font-family: ${theme.font.main};
         font-size: ${theme.fontSize(20)};
         font-weight: 500;
@@ -76,6 +72,7 @@ const theme: Theme = {
 
     return typographyValues[type];
   },
+
   minBp: (breakpoint) => `@media (min-width: ${setBreakpoint(breakpoint)}px)`,
 };
 
