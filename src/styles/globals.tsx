@@ -13,6 +13,10 @@ const GlobalStylesheet = createGlobalStyle`
     padding: 0;
   }
 
+  p {
+    color: ${(props) => props.theme.colors.text};
+  }
+
   @font-face {
     font-family: "Object Sans";
     src: url("/fonts/ObjectSans-Heavy.otf");

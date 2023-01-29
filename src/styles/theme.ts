@@ -23,7 +23,10 @@ const pxToRem = (px: number) => `${px / 16}rem`;
 const theme: Theme = {
   colors: {
     primary: '#000000',
-    secondary: '#C4C4C4',
+    secondary: '#FFFFFF',
+    tertiary: '#C4C4C4',
+    text: '#000000',
+    'text-inverted': '#FFFFFF',
     accent: '#E52727',
     outline: '#0066FF',
   },

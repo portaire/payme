@@ -7,6 +7,9 @@ export interface Theme {
   colors: {
     primary: string;
     secondary: string;
+    tertiary: string;
+    text: string;
+    'text-inverted': string;
     accent: string;
     outline: string;
   };
