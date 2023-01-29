@@ -5,9 +5,11 @@ function Hero() {
 
     const handleClick = () => {
         const sectionDiv = document.getElementById("agents");
-        const top = sectionDiv?.getBoundingClientRect().top;
+        const top:any = sectionDiv?.getBoundingClientRect().top;
+        const height:any = sectionDiv?.getBoundingClientRect().height;
+        const middle = top + (height / 2) - (window.innerHeight / 2);
         window.scrollTo({
-            top: top,
+            top: middle,
             behavior: 'smooth'
         });
     };
