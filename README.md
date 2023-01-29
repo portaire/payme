@@ -52,11 +52,15 @@ This structure allows for easy integration with multiple APIs - simply add a new
 
 ## Views
 
-React is a View library.
+Having a separate "view" directory helps us separate the structure of the app.
 
-In React, a 'view' refers to any component displayed on the screen, whether it be a button or a home page. Semantic names that we give, such as 'atom' or 'component' for buttons and 'page' for pages, are used for clarity - technically everything is a 'component'.
+React is a "view" library, unlike MVC. 
 
-However, regardless of the name, these components are all considered 'views', something that renders to the screen.
+When creating new components, they don't have a meaning, unless we give it.
+
+For example, a button is a component, a page is a component. Semantic names that we give, such as an 'atom' or an 'component' for a button, and 'page' for pages are used for cliarty, made by developers - technically everything is a 'react component', a 'view'.
+
+Having a separate "view" directory for these components helps maintain a clear separation of concerns and becomes more important as the project grows. Everything the user sees belongs in the "view" directory.
 
 
 ### Organizing Components:
