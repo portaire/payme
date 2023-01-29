@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
 import { SVGCreditCard } from "assets/svg/CreditCard";
+
+import CardPaymentErrors from "./_components/CardPaymentError/CardPaymentErrors";
 import { cardPaymentHelper } from "./cardPaymentHelper";
 
 
@@ -14,7 +16,6 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     //     masked: "",
     //     raw: ""
     // })
-
     
     const [cardNumber, setCardNumer] = useState("");
     const [maskedCardNumber, setMaskedCardNumber] = useState("");
@@ -29,7 +30,10 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     const inputRef = useRef<HTMLInputElement | null>(null);
     const isError = maskedCardNumber.length !== 0 && maskedCardNumber.length !== 19
 
-    
+
+
+    // Helpers
+    // =======================================================
     function maskCharacters(str:any) {
         let characters = str.split("");
         let groups = [];
@@ -74,11 +78,10 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
     function handleCardExpiryChange(e:any) {
         const value = e.target.value
+            
         setRawExpiry((raw) => {
-            const newRaw = raw;
-            const formatted = cardPaymentHelper.formatCardExpiry(value)
-            setMaskedExpiry(formatted)
-
+            const newRaw = raw.replace("/", "");    
+            setMaskedExpiry(cardPaymentHelper.formatCardExpiry(value))
             return newRaw;
         })
     }
@@ -138,11 +141,6 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
     return (
         <div className="relative">
-            {/* <div className="absolute -top-10 bg-green-400 w-[300px]"> */}
-                {/* <input type="text" placeholder="Hello" maxLength={16} value={cardNumber} onChange={handleCardNumberChange} /> */}
-                {/* <input type="text" placeholder="Hello" maxLength={19} value={maskedCardNumber} onChange={handleCardNumberChange} />
-                <p className="w-full">Raw Value: {cardNumber}</p>
-            <p className="w-full">Masked Value: {maskedCardNumber}</p> */}
 
             <div className={`overflow-hidden rounded-[3px] py-2.5 px-2 relative border flex items-center ${isError ? "border-[#E52727]" : "  border-gray-300 "}`}>
                 <div className="flex-none w-[26px] h-[17px]">
@@ -193,14 +191,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                 </label>
             </div>
 
-
-            {isError &&
-                <div className="rounded-bl-[3px] absolute -bottom-1/2 w-full rounded-br-[3px] text-xs font-normal bg-[#E52727]">
-                <div className="px-1.5 py-1">
-                    <span className="text-white">Card number incorrect</span>
-                </div>
-                </div>
-            }
+            {isError && <CardPaymentErrors error={"cardNumber"} />}
 
         </div>
     )

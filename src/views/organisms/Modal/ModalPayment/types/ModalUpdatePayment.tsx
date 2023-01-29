@@ -71,7 +71,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     cardExpiryInputProps={{ 
                         value: form.values.expiry,
                         name: "expiry",
-                        onChange: (e:any) => console.log(e) //form.handleChange({ target: { "name": "expiry", "value": e }})
+                        onChange: (e:any) => form.handleChange({ target: { "name": "expiry", "value": e }})
                     }}
                     cardCVCInputProps={{ 
                         value: form.values.cvc,
