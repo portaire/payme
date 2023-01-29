@@ -1,6 +1,98 @@
-# Getting Started with Create React App
+"Folder Structure for Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Global components (atoms, molecules, organisms) should be placed in the global folder.
+
+Local components (e.g. header, footer) should have their own local folder to avoid cluttering the global component directory and ensure maintainability and scalability.
+
+Directory Layout:
+A typical top-level directory structure is provided for reference.
+
+File Naming Convention:
+Use descriptive names, such as 'PersonIndex' and 'PersonView' instead of 'People' and 'Person'.
+
+
+
+## Name Files Descriptively:
+Instead of naming files 'index', use descriptive names such as 'PersonIndex'. This helps to easily distinguish files in code editors, such as VSCode. Otherwise you'll have lots of 'index' tabs open at the top hard to navigate.
+
+
+Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
+
+
+
+
+# Basic Overview of Structure
+
+```
+/src
+├── /config         # Configuration values for the APP
+├── /context        # Context API
+├── /hooks          # Global hooks
+├── /routes         # Routing for the app
+├── /services       # Requests and extrernal APIs
+├── /store          # Global Redux store
+├── /styles         # CSS Styles
+├── /types          # TypeScript Models
+├── /utils          # Common used functions
+├── /views          # Anything to do with UI  
+│   ├── atoms       # Used for building blocks i.e button, input   
+│   └── molecules   # Made from atoms i.e search bar  
+│   └── organisms   # Complex UI components i.e carousel   
+│   └── pages       # Respresents a page  
+```
+
+## services
+- Serices
+
+## Views
+
+React is a View library.
+
+In React, a 'view' refers to any component displayed on the screen, whether it be a button or a home page. Semantic names that we give, such as 'atom' or 'component' for buttons and 'page' for pages, are used for clarity - technically everything is a 'component'.
+
+However, regardless of the name, these components are all considered 'views', something that renders to the screen.
+
+
+### Organizing Components:
+To promote separation of concerns, all 'views' should be kept in a 'views' folder." 
+
+React Documentation is just a guideline and should not be taken serious. 
+
+
+# Git Workflow
+
+Main Branch - ultimate source of truth for live app    
+Staging Branch- pre-live work for testing   
+Dev/feature/es - features developed  
+
+
+
+### Methodology when commiting
+
+Workflow when commiting or pushing, written by [Robin  Wieruch](https://www.robinwieruch.de/git-team-workflow/)
+
+- feat - actual feature implementation  
+- style - code style and code clean up  
+- test - actual test implementation  
+- fix - bug fix  
+- refactor - refactoring that doesn't affect the behavior of the code  
+- chore - no production code changes, but more like configuration and setup  
+
+Commit message could look like the following:  
+
+- feat(users) add authentication  
+- fix(logout) clean up cookie  
+- test(login) cookie set with access token  
+- style(*) fix indentation  
+- chore(.gitignore) add .env file  
+
+This workflow can also be found on the MDN GitHub and any other large open-source projects.
+
+
+
+
+
+
 
 ## Available Scripts
 

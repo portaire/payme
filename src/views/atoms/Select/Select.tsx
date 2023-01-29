@@ -5,7 +5,7 @@ import SelectPlaceholder from "./_components/SelectPlaceholder";
 
 
 // TODO: Make search optional based on booolean
-function Select({ placeholder, label, data, onChange }:any) {
+function Select({ placeholder, label, data, onChange, search }:SelectProps) {
     const [value, setValue] = useState("");
     const [open, setOpen] = useState(false);
     const [searchValue, setSearchValue] = useState("");
@@ -60,3 +60,12 @@ function Select({ placeholder, label, data, onChange }:any) {
 }
 export default Select;
 
+interface SelectProps {
+    id?: string;
+    name?: string;
+    placeholder?: string;
+    label?: string;
+    data: { name: string; code: string; }[];
+    onChange?: any;
+    search?: boolean;
+}
