@@ -25,6 +25,7 @@ const theme: Theme = {
     primary: '#000000',
     secondary: '#FFFFFF',
     tertiary: '#C4C4C4',
+    'tertiary-light': '#F6F6F6',
     text: '#000000',
     'text-inverted': '#FFFFFF',
     error: '#E52727',
@@ -39,6 +40,7 @@ const theme: Theme = {
 
     const radiusValues = {
       sm: '3px',
+      md: '10px',
       complete: '100%',
     };
 
@@ -94,6 +96,11 @@ const theme: Theme = {
         font-family: ${theme.font.main};
         font-size: ${theme.fontSize(14)};
         line-height: ${pxToRem(9)};
+      `,
+      'small-button': `
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(12)};
+        line-height: ${pxToRem(12)};
       `,
     };
 

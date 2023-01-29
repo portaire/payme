@@ -1,5 +1,5 @@
 interface Props {
-  type: 'card' | 'stripe' | 'mag' | 'chevron-down';
+  type: 'card' | 'stripe' | 'mag' | 'chevron-down' | 'pound';
 }
 
 const icons = {
@@ -7,6 +7,7 @@ const icons = {
   stripe: '/stripe.png',
   mag: '/mag.svg',
   'chevron-down': '/chevron-down.svg',
+  pound: '/pound.svg',
 };
 
 export const Icon = ({ type }: Props) => {

@@ -1,6 +1,6 @@
 import { Breakpoints } from './Breakpoints';
 
-type RadiusOptions = 'sm' | 'complete';
+type RadiusOptions = 'sm' | 'md' | 'complete';
 type TypographyOptions =
   | 'modal-title'
   | 'button'
@@ -8,7 +8,8 @@ type TypographyOptions =
   | 'error'
   | 'placeholder'
   | 'input'
-  | 'small-input';
+  | 'small-input'
+  | 'small-button';
 
 export interface Theme {
   colors: {
@@ -20,6 +21,7 @@ export interface Theme {
     error: string;
     outline: string;
     outline2: string;
+    'tertiary-light': string;
   };
   font: {
     main: string;
