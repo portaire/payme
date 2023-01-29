@@ -26,13 +26,7 @@ function AgentList() {
     }, [])
 
     return (
-        <Section id="detectives" className="my-24">
-        <Container className="max-w-7xl mx-7">
-      
-            <AgentListIndex items={agentList} />
-
-        </Container>
-        </Section>
+        <AgentListIndex items={agentList} />
     )
 }
 
