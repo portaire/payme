@@ -1,0 +1,84 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Input } from ".";
+
+<Meta title="Atom/Input" />
+
+# Input
+
+<br />
+<br />
+
+## Approach
+
+Matching the designs I found a issue
+
+1. The designs seem to show different borders for each input, i'd normally ask if these are different states but the designs don't show any other states. I've left the
+   accessiblity outline in, however there is styling behind the scenes to make the border look like the designs.
+
+<br />
+<br />
+
+## Examples
+
+<Canvas withSource="open">
+  <Story name="default">
+    <Input
+      optional
+      name="address-line1"
+      label="Address line 1"
+      placeholder="e.g. 123 Fake St"
+    />
+  </Story>
+</Canvas>
+
+## Example with error
+
+<Canvas withSource="open">
+  <Story name="with error">
+    <Input
+      name="address-line1"
+      label="Address line 1"
+      error="Please fill in an address line"
+    />
+  </Story>
+</Canvas>
+
+## Example Grouped
+
+<Canvas withSource="open">
+  <Story name="multiple">
+    <div>
+      <Input
+        name="address-line1"
+        label="Address line 1"
+        error="Please fill in an address line"
+      />
+      <Input
+        name="address-line1"
+        label="Address line 2"
+        error="Please fill in an address line"
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Example Optional
+
+<Canvas withSource="open">
+  <Story name="optional">
+    <Input optional name="address-line1" label="Address line 1" />
+  </Story>
+</Canvas>
+
+## Example Placeholder
+
+<Canvas withSource="open">
+  <Story name="placeholder">
+    <Input
+      optional
+      name="address-line1"
+      label="Address line 1"
+      placeholder="e.g. W11 1NS"
+    />
+  </Story>
+</Canvas>

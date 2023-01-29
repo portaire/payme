@@ -1,7 +1,13 @@
 import { Breakpoints } from './Breakpoints';
 
 type RadiusOptions = 'sm' | 'complete';
-type TypographyOptions = 'modal-title' | 'button' | 'label';
+type TypographyOptions =
+  | 'modal-title'
+  | 'button'
+  | 'label'
+  | 'error'
+  | 'placeholder'
+  | 'input';
 
 export interface Theme {
   colors: {
@@ -10,7 +16,7 @@ export interface Theme {
     tertiary: string;
     text: string;
     'text-inverted': string;
-    accent: string;
+    error: string;
     outline: string;
   };
   font: {

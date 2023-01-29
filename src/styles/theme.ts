@@ -27,7 +27,7 @@ const theme: Theme = {
     tertiary: '#C4C4C4',
     text: '#000000',
     'text-inverted': '#FFFFFF',
-    accent: '#E52727',
+    error: '#E52727',
     outline: '#0066FF',
   },
   font: {
@@ -60,17 +60,35 @@ const theme: Theme = {
         line-height: ${pxToRem(22)};
       `,
       button: `
-      font-family: ${theme.font.main};
-      font-size: ${theme.fontSize(14)};
-      font-weight: 400;
-      line-height: ${pxToRem(8)};
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(14)};
+        font-weight: 400;
+        line-height: ${pxToRem(8)};
     `,
       label: `
-      font-family: ${theme.font.main};
-      font-size: ${theme.fontSize(14)};
-      font-weight: 500;
-      line-height: ${pxToRem(8)};
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(14)};
+        font-weight: 500;
+        line-height: ${pxToRem(8)};
     `,
+      error: `
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(13)};
+        font-weight: 400;
+        line-height: ${pxToRem(16)};
+      `,
+      placeholder: `
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(16)};
+        line-height: ${pxToRem(16)};
+        font-weight: 400;
+      `,
+      input: `
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(16)};
+        line-height: ${pxToRem(16)};
+        font-weight: 400;
+      `,
     };
 
     return typographyValues[type];
