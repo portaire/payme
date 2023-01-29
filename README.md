@@ -1,24 +1,6 @@
-# Folder Structure and Naming
-
-## Folders
-Global components (atoms, molecules, organisms) should be placed in the global folder.
-
-Local components (e.g. header, footer) should have their own local folder to avoid cluttering the global component directory and ensure maintainability and scalability.
-
-Directory Layout:
-A typical top-level directory structure is provided for reference.
-
-File Naming Convention:
-Use descriptive names, such as 'PersonIndex' and 'PersonView' instead of 'People' and 'Person'.
-
-## Files:
-Instead of naming files 'index', use descriptive names such as 'PersonIndex'. This helps to easily distinguish files in code editors, such as VSCode. Otherwise you'll have lots of 'index' tabs open at the top hard to navigate.
-
-Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
-
 
 # Structure Overview
-General structure of the webapp.
+General structure of the webapp, and explanation of each main folder.
 
 ```
 /src
@@ -62,14 +44,66 @@ For example, a button is a component, a page is a component. Semantic names that
 
 Having a separate "view" directory for these components helps maintain a clear separation of concerns and becomes more important as the project grows. Everything the user sees belongs in the "view" directory.
 
+### Components
 
-### Organizing Components:
-To promote separation of concerns, all 'views' should be kept in a 'views' folder." 
+The approach I've taken here is to use ATOMIC Desing principles. 
 
-React Documentation is just a guideline and should not be taken serious. 
+It helps with scalability and maintanability of the project with an easy to understand methodology.
+
+You build from small components to large ones. Just like atoms build molecules, and molecules form an organisms. Its the equivalant of `Button`, `Input`, `Select`, `Card` making a molecule or organisms, which if we have a lot of them, they eventually form a template, a page.
+
+Desing by components, not by pages.
+
+Good article: https://atomicdesign.bradfrost.com/chapter-2/
 
 
+## Styles
 
+TailwindCSS structure emphasizes minimal use of styles. 
+
+Configuration values are set in either tailwind.config.js or theming.scss within the base folder. TailwindCSS streamlines styling with its efficient and elegant approach, replacing the need for pure CSS or Scss variables. 
+
+The folder prefixes prioritize order, as some folders require interdependent functionality and must be imported to function properly.
+
+``` 
+/styles  
+├── /0-vendor       # 3rd party libraries i.e tailwindcss, fonts and so on
+├── /1-helpers      # mixins   
+├── /2-base         # global styles, theming etc...
+├── /3-layouts      # global layouts such as: header, footer, nav, sidebar  
+├── cheat           # hot fixes - should be cleaned once a while  
+├── styles          # imports all above, it gives a nice overlook on all imports, as they do need to follow an order
+ 
+```
+
+
+# Folder Structure and Naming
+
+For an easy way of collaborating with other developers have a folder and naming convention that everyone follows on the project to save any confusion and make work go smooth as possible.
+
+This also helps onboard new devs and get up to speed, instead of figuring out how something should be named or if this is the correct plurar word.
+
+## Folders
+Global components (atoms, molecules, organisms) should be placed in the global folder.
+
+Local components (e.g. header, footer) should have their own local folder to avoid cluttering the global component directory and ensure maintainability and scalability.
+
+Directory Layout:
+A typical top-level directory structure is provided for reference.
+
+File Naming Convention:
+Use descriptive names, such as 'PersonIndex' and 'PersonView' instead of 'People' and 'Person'.
+
+## Files
+Instead of naming files 'index', use descriptive names such as 'PersonIndex'. This helps to easily distinguish files in code editors, such as VSCode. Otherwise you'll have lots of 'index' tabs open at the top hard to navigate.
+
+## Reference Link 
+Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
+
+Futher readingL
+- https://github.com/adamwathan/laracon2017
+- https://restfulapi.net/resource-naming/
+- https://www.youtube.com/watch?v=MF0jFKvS4SI 
 
 # Git Workflow
 The project has various branches, including:
@@ -109,12 +143,23 @@ On a larger project with a lot of repeating UI and, it would be a good  idea to 
 This is a good real life template that Visit Britain uses that can be mimicked: https://www.visitbritain.com/themes/custom/rutherford/storybook/static/index.html?path=/docs/welcome--page
 
 
+# Refactoring
+
+Planing the future of the product, gotta keep it simple. Avoiding over-hiring developers to work on one aspect of the codebase by prematurely optimizing, organizing, or redesigning it. Refactoring is a natural part of growth as new features are added. 
+
+I follow this rule: "If you can easily change something later, do it now - by the time you've made the decision it could have been coded up. If it will be costly and time-consuming, take a week to consider the best approach."
+
+Eventually, your app may need to be rewritten or have elements updated with specialized technology for improved performance. For example, while YouTube might not be difficult to build, it underwent refactoring into multiple pieces, such as using Python for videos and JavaScript for the website and probably a dozen more tech - instead of usingone tech for everything. It's usually okay for a startup to start small with a tech as its more const effective and the 'best' approach will happen when its needed.
+
+Some good articles:
+- https://betterprogramming.pub/avoiding-premature-software-abstractions-8ba2e990930a
 
 
+# Installingthe project
 
+### `npm install` 
 
-
-## Available Scripts
+Installs required packages.
 
 In the project directory, you can run:
 
