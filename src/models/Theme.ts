@@ -7,7 +7,8 @@ type TypographyOptions =
   | 'label'
   | 'error'
   | 'placeholder'
-  | 'input';
+  | 'input'
+  | 'small-input';
 
 export interface Theme {
   colors: {

@@ -89,6 +89,11 @@ const theme: Theme = {
         line-height: ${pxToRem(16)};
         font-weight: 400;
       `,
+      'small-input': `
+        font-family: ${theme.font.main};
+        font-size: ${theme.fontSize(14)};
+        line-height: ${pxToRem(9)};
+      `,
     };
 
     return typographyValues[type];
