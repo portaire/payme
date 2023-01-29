@@ -36,7 +36,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
     function submitForm(e:any) {
         e.preventDefault();
-        console.log("submit val3333333333333ues", form.values)
+        console.log("submit valllll", form.values)
     }
 
     function handleAction(e:any) {
@@ -53,6 +53,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
 
     function handleSelectChange(e:any) {
+        console.log("hellooo", e)
         form.handleChange( {target: { "name": "country", "value": e}});
     }
    
@@ -64,7 +65,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     cardNumberInputProps={{ 
                         value: form.values.number,
                         name: "number",
-                        onChange:(e:any) => console.log("OUTSIDE card", e.target),//form.handleChange(e),
+                        onChange:(e:any) => form.handleChange({ target: { "name": "number", "value": e}}),//form.handleChange(e),
                         maskInitial: 12,
                     }}
                     cardExpiryInputProps={{ 
