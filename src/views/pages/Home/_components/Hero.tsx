@@ -13,7 +13,7 @@ function Hero() {
     };
     
     return (
-        <Section className="bg-[#f2efe9] py-20 mx-7 my-10 mb-5 relative">
+        <Section id="hero" className="bg-[#f2efe9] py-20 mx-7 my-10 mb-5 relative">
         <Container className="md:py-12 lg:py-28 px-4 md:px-10 lg:px-44">
 
 

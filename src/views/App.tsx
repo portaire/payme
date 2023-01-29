@@ -1,7 +1,13 @@
+import Tawk from './atoms/Tawk';
 import Layout from './pages/Layout';
 
 function App() {
-    return <Layout />
+    return (
+        <>
+            <Tawk />
+            <Layout />
+        </>
+    )
 }
 
 export default App;
