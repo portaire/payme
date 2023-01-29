@@ -39,6 +39,7 @@ export const Trigger = styled.button`
   padding: ${({ theme }) => theme.spacing(8)};
   border: none;
   background: ${({ theme }) => theme.colors['tertiary-light']};
+  cursor: pointer;
 
   img {
     margin-right: ${({ theme }) => theme.spacing(5)};
