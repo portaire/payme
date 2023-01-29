@@ -1,5 +1,6 @@
-"Folder Structure for Components
+# Folder Structure and Naming
 
+## Folders
 Global components (atoms, molecules, organisms) should be placed in the global folder.
 
 Local components (e.g. header, footer) should have their own local folder to avoid cluttering the global component directory and ensure maintainability and scalability.
@@ -10,18 +11,14 @@ A typical top-level directory structure is provided for reference.
 File Naming Convention:
 Use descriptive names, such as 'PersonIndex' and 'PersonView' instead of 'People' and 'Person'.
 
-
-
-## Name Files Descriptively:
+## Files:
 Instead of naming files 'index', use descriptive names such as 'PersonIndex'. This helps to easily distinguish files in code editors, such as VSCode. Otherwise you'll have lots of 'index' tabs open at the top hard to navigate.
-
 
 Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
 
 
-
-
-# Basic Overview of Structure
+# Structure Overview
+General structure of the webapp.
 
 ```
 /src
@@ -41,8 +38,17 @@ Reference: Inspired by Laravel's resource controller actions - https://laravel.c
 │   └── pages       # Respresents a page  
 ```
 
-## services
-- Serices
+## Services
+
+Services are responsible for communicating with external information sources, such as RESTful APIs, GraphQL and so on. 
+
+The structure is divided as follows:
+
+Requests: holds the crucial technology for making fetch requests to specific APIs
+[API name]: contains the configuration details for the API and its different routes.
+
+This structure allows for easy integration with multiple APIs - simply add a new folder, create a new config, create specific request, create new APIs functions and it's ready to use.
+
 
 ## Views
 
@@ -59,34 +65,44 @@ To promote separation of concerns, all 'views' should be kept in a 'views' folde
 React Documentation is just a guideline and should not be taken serious. 
 
 
+
+
 # Git Workflow
+The project has various branches, including:
 
-Main Branch - ultimate source of truth for live app    
-Staging Branch- pre-live work for testing   
-Dev/feature/es - features developed  
+Main Branch: serves as the authoritative source for the live app
+Staging Branch: used for pre-live testing
+Dev/feature/es: used for developing new features (can be made more specific)
 
+When working on a feature withing a large team its a good idea to separate it in a new branch and merge it. 
 
-
-### Methodology when commiting
+## Methodology when commiting
 
 Workflow when commiting or pushing, written by [Robin  Wieruch](https://www.robinwieruch.de/git-team-workflow/)
 
-- feat - actual feature implementation  
-- style - code style and code clean up  
-- test - actual test implementation  
-- fix - bug fix  
-- refactor - refactoring that doesn't affect the behavior of the code  
-- chore - no production code changes, but more like configuration and setup  
+- feat: actual feature implementation  
+- style: code style and code clean up  
+- test: actual test implementation  
+- fix: bug fix  
+- refactor: refactoring that doesn't affect the behavior of the code  
+- chore: no production code changes, but more like configuration and setup  
 
 Commit message could look like the following:  
 
-- feat(users) add authentication  
-- fix(logout) clean up cookie  
-- test(login) cookie set with access token  
-- style(*) fix indentation  
-- chore(.gitignore) add .env file  
+- feat(users): add authentication  
+- fix(logout): clean up cookie  
+- test(login): cookie set with access token  
+- style(*): fix indentation  
+- chore(.gitignore): add .env file  
 
-This workflow can also be found on the MDN GitHub and any other large open-source projects.
+Similar workflows are being used on large open-source projects such as MDN.
+
+
+# Storybook
+
+On a larger project with a lot of repeating UI and, it would be a good  idea to use Storybook. However, on some applicatoins like a Website builder, I don't really see a use case for it.
+
+This is a good real life template that Visit Britain uses that can be mimicked: https://www.visitbritain.com/themes/custom/rutherford/storybook/static/index.html?path=/docs/welcome--page
 
 
 
