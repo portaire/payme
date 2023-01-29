@@ -1,5 +1,6 @@
 # Portaire tech test 
 
+
 ## What is this ?
 This is a tech test for Portaire. It is a simple web app that allows you to pay for 
 an nondescript item. 
@@ -10,6 +11,9 @@ Hey, I've added a couple of tools from my boilerplate that I use to help me alon
 
 I've also built all of these components in storybook with variations, this is to help you understand the components and how they work (makes it easier explain components and usage async). The approach of developing in storybook first should add little to none time to your development process.
 
+I've also just created each component under a commit however, typically I would create a branch for each component and then merge them into the main branch separately.
+
+I could also have used a UI library like radix however I would like to show how I would build these components from scratch.
 
 
 ## Deployments

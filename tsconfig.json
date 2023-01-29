@@ -14,45 +14,45 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@atoms/*": [
+        "src/components/atoms/*"
+      ],
+      "@molecules/*": [
+        "src/components/molecules/*"
+      ],
+      "@organisms/*": [
+        "src/components/organisms/*"
+      ],
+      "@animations/*": [
+        "src/components/animations/*"
+      ],
+      "@templates/*": [
+        "src/components/templates/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "baseUrl": ".",
-  "paths": {
-   
-    "@contexts/*": [
-      "src/contexts/*"
-    ],
-    "@helpers/*": [
-      "src/helpers/*"
-    ],
-    "@hooks/*": [
-      "src/hooks/*"
-    ],
-    "@models/*": [
-      "src/models/*"
-    ],
-    "@atoms/*": [
-      "src/components/atoms/*"
-    ],
-    "@molecules/*": [
-      "src/components/molecules/*"
-    ],
-    "@organisms/*": [
-      "src/components/organisms/*"
-    ],
-    "@animations/*": [
-      "src/components/animations/*"
-    ],
-    "@templates/*": [
-      "src/components/templates/*"
-    ],
-    "@services/*": [
-      "src/services/*"
-    ],
-    "@styles/*": [
-      "src/styles/*"
-    ],
-  }
+
 }
