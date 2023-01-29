@@ -24,10 +24,10 @@ function AgentList() {
     useEffect(() => {
         fetchAgentList()
     }, [])
-    
+
     return (
         <Section id="detectives" className="my-24">
-        <Container className="max-w-7xl">
+        <Container className="max-w-7xl mx-7">
       
             <AgentListIndex items={agentList} />
 

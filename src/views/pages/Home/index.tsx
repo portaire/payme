@@ -1,6 +1,17 @@
+import Button from "views/atoms/Button/Button";
+import { Container, Section } from "views/_ui";
+import Hero from "./_components/Hero/Hero";
+
 function Home() {
+
+    
+
     return (
-        <div className="bg-red-500">Hi</div>
+        <div>
+
+            <Hero />
+
+        </div>
     )
 }
 

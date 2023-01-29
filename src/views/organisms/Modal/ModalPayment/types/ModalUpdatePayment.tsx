@@ -11,6 +11,7 @@ import CardPaymentInput from "views/molecules/CardPaymentInput/CardPaymentInput"
 import ModalRow from '../../_components/ModalContent/ModalRow';
 import ModalFooter from '../../_components/ModalFooter';
 import { capitalizeFirstLetter } from 'utils/common';
+import { updateAgentPaymentAddress } from 'services/portaire/api/agent';
 
 
 function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
@@ -20,11 +21,9 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
     const userInfo = fields[0]
     const form = useForm(null, {
-        // card: {
-            number: "",
-            expiry: "",
-            cvc: "",
-        // },
+        number: "",
+        expiry: "",
+        cvc: "",
         address_one: userInfo.address_one,
         address_two: userInfo.address_two,
         country: "",
@@ -32,17 +31,15 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
         post_code: userInfo.post_code
     })
 
-    console.log("Modal payment form", form)
-
-    function submitForm(e:any) {
+    async function submitForm(e:any) {
         e.preventDefault();
-        console.log("submit valllll", form.values)
+        
+        const res = await updateAgentPaymentAddress(form.values)
+        modalContext.close()
     }
 
     function handleAction(e:any) {
         e.preventDefault()
-        // onAction()
-        // submitForm()
         modalContext.close()
     }
 

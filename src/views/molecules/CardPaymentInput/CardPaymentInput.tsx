@@ -167,7 +167,6 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                         name={cardExpiryInputProps.name}
                         autoComplete="cc-exp" 
                         className="absolute text-sm w-full py-1 px-1 outline-none" 
-                        // pattern="[0-9]*" 
                         placeholder="MM/YY" 
                         value={maskedExpiry}
                         onChange={handleCardExpiryChange}
@@ -181,8 +180,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                         id={cardCVCInputProps.name}
                         name={cardCVCInputProps.name}
                         autoComplete="off" 
-                        className="absolute text-sm w-full py-1 px-1 outline-none" 
-                        // pattern="[0-9]*" 
+                        className="absolute text-sm w-full py-1 px-1 outline-none"  
                         placeholder="CVC" 
                         value={maskedCVC}
                         onChange={handleCardCVCChange}
