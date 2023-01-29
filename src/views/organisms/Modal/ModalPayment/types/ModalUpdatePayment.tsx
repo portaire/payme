@@ -65,18 +65,18 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     cardNumberInputProps={{ 
                         value: form.values.number,
                         name: "number",
-                        onChange:(e:any) => form.handleChange({ target: { "name": "number", "value": e}}),//form.handleChange(e),
+                        onChange:(e:any) => form.handleChange({ target: { "name": "number", "value": e }}),//form.handleChange(e),
                         maskInitial: 12,
                     }}
                     cardExpiryInputProps={{ 
                         value: form.values.expiry,
                         name: "expiry",
-                        onChange: (e:any) => form.handleChange(e)
+                        onChange: (e:any) => console.log(e) //form.handleChange({ target: { "name": "expiry", "value": e }})
                     }}
                     cardCVCInputProps={{ 
                         value: form.values.cvc,
                         name: "cvc",
-                        onChange: (e:any) => form.handleChange(e),
+                        onChange: (e:any) => form.handleChange({ target: { "name": "cvc", "value": e }}),
                         maskInitial: 3
                     }}
                 />

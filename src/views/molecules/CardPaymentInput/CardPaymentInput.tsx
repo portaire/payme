@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { SVGCreditCard } from "assets/svg/CreditCard";
 import { cardPaymentHelper } from "./cardPaymentHelper";
@@ -17,16 +17,17 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
     
     const [cardNumber, setCardNumer] = useState("");
-    const [maskedValue, setMaskedValue] = useState("");
+    const [maskedCardNumber, setMaskedCardNumber] = useState("");
 
     const [rawExpiry, setRawExpiry] = useState("")
     const [maskedExpiry, setMaskedExpiry] = useState("")
 
     const [rawCVC, setRawCVC] = useState("")
     const [maskedCVC, setMaskedCVC] = useState("")
+    
 
-     
-
+    const inputRef = useRef<HTMLInputElement | null>(null);
+    const isError = maskedCardNumber.length !== 0 && maskedCardNumber.length !== 19
 
     
     function maskCharacters(str:any) {
@@ -47,26 +48,62 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     // EVENT HANDLERS
     // =======================================================
 
-    function handleChange(e:any) {
+    function handleCardNumberChange(e:any) {
         const starsAndDigits = e.target.value.match(/[*\d]/g);
 
         setCardNumer((raw) => {
-        const digits:any = raw.split("");
-    
-        if (starsAndDigits) {
-            for (const i of digits.keys()) {
-                if (starsAndDigits[i] !== "*") {
-                    digits[i] = starsAndDigits[i];
+            const digits:any = raw.split("");
+        
+            if (starsAndDigits) {
+                for (const i of digits.keys()) {
+                    if (starsAndDigits[i] !== "*") {
+                        digits[i] = starsAndDigits[i];
+                    }
                 }
+                digits.push(...starsAndDigits.slice(digits.length));
             }
-            digits.push(...starsAndDigits.slice(digits.length));
-        }
-    
-        const newraw = digits.join("");
-        setMaskedValue(
-            maskCharacters(newraw).slice(0, 12 + 3) + newraw.slice(12)
-        );
-        return newraw;
+        
+            const newraw = digits.join("");
+            setMaskedCardNumber(
+                maskCharacters(newraw).slice(0, 12 + 3) + newraw.slice(12)
+            );
+            
+            return newraw;
+        });
+    }
+
+    function handleCardExpiryChange(e:any) {
+        const value = e.target.value
+        setRawExpiry((raw) => {
+            const newRaw = raw;
+            const formatted = cardPaymentHelper.formatCardExpiry(value)
+            setMaskedExpiry(formatted)
+
+            return newRaw;
+        })
+    }
+
+    function handleCardCVCChange(e:any) {
+        const starsAndDigits = e.target.value.match(/[*\d]/g);
+
+        setRawCVC((raw) => {
+            const digits:any = raw.split("");
+        
+            if (starsAndDigits) {
+                for (const i of digits.keys()) {
+                    if (starsAndDigits[i] !== "*") {
+                        digits[i] = starsAndDigits[i];
+                    }
+                }
+                digits.push(...starsAndDigits.slice(digits.length));
+            }
+        
+            const newraw = digits.join("");
+            setMaskedCVC(
+                maskCharacters(newraw)
+            );
+            
+            return newraw;
         });
     }
     
@@ -82,66 +119,44 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
     useEffect(() => {
         onLoad()
+        if(inputRef.current !== null) {
+            inputRef.current.focus();
+        }
     }, [])
 
     useEffect(() => {
         cardNumberInputProps.onChange(cardNumber)
-    }, [maskedValue])
+    }, [maskedCardNumber])
 
-    
+    useEffect(() => {
+        cardExpiryInputProps.onChange(rawExpiry)
+    }, [maskedExpiry])
+
+    useEffect(() => {
+        cardCVCInputProps.onChange(rawCVC)
+    }, [maskedCVC])
+
     return (
-        <div>
+        <div className="relative">
             {/* <div className="absolute -top-10 bg-green-400 w-[300px]"> */}
-                {/* <input type="text" placeholder="Hello" maxLength={16} value={cardNumber} onChange={handleChange} /> */}
-                {/* <input type="text" placeholder="Hello" maxLength={19} value={maskedValue} onChange={handleChange} />
+                {/* <input type="text" placeholder="Hello" maxLength={16} value={cardNumber} onChange={handleCardNumberChange} /> */}
+                {/* <input type="text" placeholder="Hello" maxLength={19} value={maskedCardNumber} onChange={handleCardNumberChange} />
                 <p className="w-full">Raw Value: {cardNumber}</p>
-            <p className="w-full">Masked Value: {maskedValue}</p> */}
-            
-            {/* <input 
-                id={cardNumberInputProps.name} 
-                name={cardNumberInputProps.name}
-                autoComplete="cc-number"
-                value={cardNumber}
-                onChange={(e:any) => cardNumberInputProps.onChange(e)}
-                type="text"
-                maxLength={16}
-                className="absolute hidden"
-            />  */}
-            {/* </div> */}
-            {/* <input 
-                id={cardExpiryInputProps.name} 
-                name={cardExpiryInputProps.name}
-                autoComplete="cc-number"
-                value={rawExpiry}
-                onChange={(e) => handleExpiry(e)}
-                type="text"
-                className="absolute hidden"
-            /> 
-            <input 
-                id={cardCVCInputProps.name} 
-                name={cardCVCInputProps.name}
-                autoComplete="cc-number"
-                value={rawCVC}
-                onChange={(e) => handleCVC(e)}
-                type="text"
-                className="absolue hidden"
-            /> */}
+            <p className="w-full">Masked Value: {maskedCardNumber}</p> */}
 
-
-
-
-            <div className="overflow-hidden rounded-[3px] py-2.5 px-2 border border-gray-300 relative flex items-center">
+            <div className={`overflow-hidden rounded-[3px] py-2.5 px-2 relative border flex items-center ${isError ? "border-[#E52727]" : "  border-gray-300 "}`}>
                 <div className="flex-none w-[26px] h-[17px]">
                     <SVGCreditCard />
                 </div>
                 
                 <label className="relative ml-2 flex items-center w-full card-label translate-x-[0px]">
                     <input 
-                        className="absolute text-sm w-full py-1 px-1" 
+                        ref={inputRef}
+                        className="absolute text-sm w-full py-1 px-1 outline-none" 
                         placeholder="Card number"
-                        value={maskedValue}
+                        value={maskedCardNumber}
                         maxLength={19}
-                        onChange={handleChange}
+                        onChange={handleCardNumberChange}
                         type="text"
                     />
                 </label>
@@ -153,11 +168,11 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                         id={cardExpiryInputProps.id} 
                         name={cardExpiryInputProps.name}
                         autoComplete="cc-exp" 
-                        className="absolute text-sm w-full py-1 px-1" 
-                        pattern="[0-9]*" 
+                        className="absolute text-sm w-full py-1 px-1 outline-none" 
+                        // pattern="[0-9]*" 
                         placeholder="MM/YY" 
                         value={maskedExpiry}
-                        // onChange={(e) => handleExpiry(e)}
+                        onChange={handleCardExpiryChange}
                         type="text"
                     />
                 </label>
@@ -168,19 +183,24 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                         id={cardCVCInputProps.name}
                         name={cardCVCInputProps.name}
                         autoComplete="off" 
-                        className="absolute text-sm w-full py-1 px-1 " 
-                        pattern="[0-9]*" 
+                        className="absolute text-sm w-full py-1 px-1 outline-none" 
+                        // pattern="[0-9]*" 
                         placeholder="CVC" 
                         value={maskedCVC}
-                        // onChange={(e) => handleCVC(e)}
+                        onChange={handleCardCVCChange}
                         type="text"
                     />
                 </label>
             </div>
 
-            {/* <div className="bg-red-500">
-                ERROR
-            </div> */}
+
+            {isError &&
+                <div className="rounded-bl-[3px] absolute -bottom-1/2 w-full rounded-br-[3px] text-xs font-normal bg-[#E52727]">
+                <div className="px-1.5 py-1">
+                    <span className="text-white">Card number incorrect</span>
+                </div>
+                </div>
+            }
 
         </div>
     )
