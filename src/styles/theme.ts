@@ -29,6 +29,7 @@ const theme: Theme = {
     'text-inverted': '#FFFFFF',
     error: '#E52727',
     outline: '#0066FF',
+    outline2: '#F9F9F9',
   },
   font: {
     main: 'Object Sans, sans-serif',

@@ -19,6 +19,7 @@ export interface Theme {
     'text-inverted': string;
     error: string;
     outline: string;
+    outline2: string;
   };
   font: {
     main: string;

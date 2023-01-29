@@ -6,6 +6,10 @@ interface Props {
   placeholder: string;
   error?: string;
   optional?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: 'select';
+  value: string;
+  selectValue?: string;
 }
 
 export const Input: Props = ({
@@ -13,6 +17,9 @@ export const Input: Props = ({
   name,
   placeholder,
   optional,
+  onChange,
+  selectValue,
+  value,
   error,
 }: Props) => (
   <Spacer>
@@ -24,7 +31,10 @@ export const Input: Props = ({
       name={name}
       aria-describedby={`${name}-input-error-description`}
       placeholder={placeholder}
-      {...(error && { error: { error } })}
+      onChange={onChange}
+      selectValue={selectValue}
+      {...(error && { error })}
+      {...(value && { value })}
     />
     {error && (
       <ErrorText id={`${name}-input-error-description`}>{error}</ErrorText>
