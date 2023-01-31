@@ -28,6 +28,9 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     
 
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const expiryRef = useRef<HTMLInputElement | null>(null);
+    const cvcRef = useRef<HTMLInputElement | null>(null);
+
     const isError = maskedCardNumber.length !== 0 && maskedCardNumber.length !== 19
 
 
@@ -129,10 +132,22 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
     useEffect(() => {
         cardNumberInputProps.onChange(cardNumber)
+
+        if(maskedCardNumber.length === 19) {
+            if(expiryRef.current !== null) {
+                expiryRef.current.focus();
+            }
+        }
     }, [maskedCardNumber])
 
     useEffect(() => {
         cardExpiryInputProps.onChange(rawExpiry)
+
+        if(maskedExpiry.length === 5) {
+            if(cvcRef.current !== null) {
+                cvcRef.current.focus();
+            }
+        }
     }, [maskedExpiry])
 
     useEffect(() => {
@@ -162,6 +177,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
                 <label className="relative ml-2 flex items-center w-[105px] translate-x-[0rem] card-label" data-max="MM / YY 9">
                     <input 
+                        ref={expiryRef}
                         maxLength={5}
                         id={cardExpiryInputProps.id} 
                         name={cardExpiryInputProps.name}
@@ -176,6 +192,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
                 <label className="relative ml-2 flex items-center w-[70px] translate-x-[0rem] card-label" data-max="9999">
                     <input 
+                        ref={cvcRef}
                         maxLength={3}
                         id={cardCVCInputProps.name}
                         name={cardCVCInputProps.name}

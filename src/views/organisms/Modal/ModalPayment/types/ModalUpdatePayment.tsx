@@ -31,15 +31,13 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
         post_code: userInfo.post_code
     })
 
-    async function submitForm(e:any) {
-        e.preventDefault();
-        
-        const res = await updateAgentPaymentAddress(form.values)
-        modalContext.close()
+    async function submitForm(r?:any) {
+        return await updateAgentPaymentAddress(form.values)
     }
 
-    function handleAction(e:any) {
+    async function handleAction(e:any) {
         e.preventDefault()
+        await submitForm()
         modalContext.close()
     }
 
@@ -166,7 +164,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             </div>
             </div>
 
-            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleCancel={handleCancel} />
+            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleAction={handleAction} handleCancel={handleCancel} />
         </form>
     )
 }
