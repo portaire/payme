@@ -137,7 +137,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     <Input  
                         id="state"
                         name="state"
-                        className="mt-1 rounded-r-none"
+                        className="mt-1 rounded-r-none focus:z-10 relative"
                         type="text"
                         placeholder="e.g. Middlesex"
                         autoComplete="street-address"
@@ -152,7 +152,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     <Input  
                         id="post_code"
                         name="post_code"
-                        className="mt-1 rounded-l-none border-l-0"
+                        className="mt-1 -ml-[1px] rounded-l-none"
                         type="text"
                         placeholder="e.g. W11 1NS"
                         autoComplete="street-address"
