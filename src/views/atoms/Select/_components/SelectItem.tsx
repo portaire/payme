@@ -2,7 +2,7 @@ function SelectItem({ children, item, value,activeItem, className, ...props }:an
     let isActive = item.name.toLowerCase() === activeItem.toLowerCase();
 
     return (
-    <div tabIndex={-1} name="country" id="country" className={`${isActive ? "bg-blue-200" : "hover:bg-[#F0F8FF]"} text-black py-2 w-full cursor-pointer px-4`} {...props} onClick={() => props.onClick(children)}>
+    <div tabIndex={-1} name="country" id="country" className={`${isActive ? "bg-blue-100" : "hover:bg-[#F0F8FF]"} text-black py-2 w-full cursor-pointer px-4`} {...props} onClick={() => props.onClick(children)}>
         <div>{children}</div>
     </div>
     );

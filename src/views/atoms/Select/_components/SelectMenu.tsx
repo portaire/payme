@@ -4,8 +4,7 @@ import SelectItem from "./SelectItem";
 
 
 function SelectMenu({ open, handleSearchChange, data , filteredData, value, setValue, setOpen, onChange}:any) {
-
-
+    
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {

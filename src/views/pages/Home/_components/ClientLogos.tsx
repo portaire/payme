@@ -3,7 +3,7 @@ import { Container, Section } from "views/_ui";
 function ClientLogos() {
 
     return (
-        <Section id="client-logos" className="pt-12 pb-4">
+        <Section id="client-logos" className="pt-12 pb-4 px-4">
         <Container>
 
             <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-6">
