@@ -10,13 +10,12 @@
 
 
 .button {
-    color: white;
-    padding: 14px 21px;
-    font-weight: medium;
     border-radius: 3px;
     line-height: 1;
-    @apply text-sm;
-    @apply transform duration-100 ease-in-out;
+    @apply 
+    text-white
+    text-sm font-medium px-5 py-2.5
+    transform duration-100 ease-in-out;
 
     &:hover {
         transform: scale(1.03);
