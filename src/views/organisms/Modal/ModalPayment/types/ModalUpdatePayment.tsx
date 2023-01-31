@@ -148,7 +148,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                 </div>
 
                 <div>
-                    <Label title="Postcode" required htmlFor="post_code"/>
+                    <Label title="Post Code" required htmlFor="post_code"/>
                     <Input  
                         id="post_code"
                         name="post_code"
