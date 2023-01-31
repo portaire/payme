@@ -23,7 +23,7 @@ function Hero() {
                 <div className="md:max-w-[550px] text-center md:text-left">
 
                 <h1 className="font-medium text-3xl md:font-normal md:text-5xl text-black mb-3">The easy way to become an agent.</h1>
-                <p className="text-xl font-light mb-5">Accelerate world peace and boost governament power by becoming one of the greatest agents and work on classified operations inside the Matrix</p>
+                <p className="text-xl font-light mb-5">Contribute to the acceleration of global tranquility and augment the strength of government by becoming one of the most exceptional agents and work on confidential operations within the Matrix.</p>
                 <Button onClick={() => handleClick()} className="mb-5">Make Payment --{`>`}</Button>
 
                 <ul className="flex flex-col">
