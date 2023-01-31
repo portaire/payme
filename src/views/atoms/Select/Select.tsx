@@ -11,6 +11,9 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
     const [searchValue, setSearchValue] = useState("");
 
     const handleSearchChange = (event: any) => {
+        event.preventDefault();
+        event.stopPropagation();
+        
         setSearchValue(event.target.value);
         onChange(event)
     };
@@ -30,6 +33,8 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
             document.removeEventListener('click', handleClick);
         }
     }, []);
+
+  
     
     return (
         <div className="relative">
@@ -38,13 +43,12 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
                     Country
                 </label>
 
-                {placeholder && 
-                    <SelectPlaceholder value={value} placeholder={placeholder} />
-                }
+                {placeholder && <SelectPlaceholder value={value} placeholder={placeholder} />}
             </div>
 
             {open && 
                 <SelectMenu 
+                    open={open}
                     handleSearchChange={handleSearchChange} 
                     data={data}
                     value={value}

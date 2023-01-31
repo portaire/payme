@@ -7,6 +7,7 @@ const Input: React.FC<InputProps> = (props) => {
         name,
         className,
         placeholder,
+        ref,
         variant = "primary",
         kind = "outline",
         disabled = false,
@@ -22,7 +23,8 @@ const Input: React.FC<InputProps> = (props) => {
         helperText,
         value,
         onChange,
-        iconRight
+        iconRight,
+        autofocus
     } = props;
 
     return (
@@ -31,6 +33,7 @@ const Input: React.FC<InputProps> = (props) => {
             // {...props}     
             id={id}
             name={name}
+            ref={ref}
             type={type}
             autoComplete={autoComplete}
             placeholder={placeholder} 
@@ -71,4 +74,6 @@ interface InputProps {
     value?: any;
     onChange?: any;
     iconRight?: any;
+    autofocus?: any;
+    ref?: any;
 }

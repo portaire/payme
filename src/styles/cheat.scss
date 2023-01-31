@@ -1,3 +1,7 @@
 // ==========================================================================
 // # Cheat Styles - Hot fixes and quick code; don't forget to refactor
 // ==========================================================================
+
+.animate-open {
+    @apply opacity-100 transition-opacity duration-150 ease-in-out;
+}

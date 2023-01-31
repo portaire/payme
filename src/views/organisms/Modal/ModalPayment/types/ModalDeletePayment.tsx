@@ -8,6 +8,7 @@ import ModalContent from '../../_components/ModalContent/ModalContent';
 import ModalCard from '../../_components/ModalCard';
 import ModalForm from '../../_components/ModalContent/ModalForm';
 import { capitalizeFirstLetter } from 'utils/common';
+import ModalRow from '../../_components/ModalContent/ModalRow';
 
 
 
@@ -46,12 +47,14 @@ function ModalDeletePayment({config}:ModalDeletePaymentProps) {
    
     return (
         <>
-            <span>
-            You are about to delete payment details for user: 
-            </span>
-            <span className="font-semibold">
-            {" "}{userInfo.first_name} {userInfo.last_name}
-            </span>
+            <ModalRow>
+                <span>
+                You are about to delete payment details for user: 
+                </span>
+                <span className="font-semibold">
+                {" "}{userInfo.first_name} {userInfo.last_name}
+                </span>
+            </ModalRow>
 
             <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleAction={handleAction} handleCancel={handleCancel} />
         </>

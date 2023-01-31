@@ -1,7 +1,19 @@
+import React, { useEffect, useRef } from 'react';
 import Input from "views/atoms/Input/Input";
 import SelectItem from "./SelectItem";
 
-function SelectMenu({ handleSearchChange, data , filteredData, value, setValue, setOpen, onChange}:any) {
+
+function SelectMenu({ open, handleSearchChange, data , filteredData, value, setValue, setOpen, onChange}:any) {
+
+
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
+    useEffect(() => {
+        if(inputRef.current !== null) {
+            inputRef.current.focus();
+        }
+    }, [open])
+
     return (
         <div className="absolute -translate-y-[50px] h-[136px] z-50 bg-white w-full">
         <div className="relative">
@@ -9,9 +21,9 @@ function SelectMenu({ handleSearchChange, data , filteredData, value, setValue, 
             {/* add icon */}
 
             <Input
-                className="w-full" 
-                placeholder="Type to search" 
-                value={value} 
+                ref={inputRef}
+                className="w-full js-select" 
+                placeholder="Type to search"         
                 onChange={(e:any) => handleSearchChange(e)}  
                 name="country"
                 iconRight={`<svg class="z-50" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -20,9 +32,10 @@ function SelectMenu({ handleSearchChange, data , filteredData, value, setValue, 
             />
 
             <div className="select__menu absolute w-full border border-gray-300 rounded-bl-[3px] rounded-br-[3px] max-h-[200px] bg-white overflow-y-auto">
-            {data && data.length > 0 && filteredData.map((item: any) => {
-                return <SelectItem key={item.code} value={item.code} tabIndex={-1} onClick={(e:any) => {setValue(item.name); setOpen(false); onChange(e)}}>{item.name}</SelectItem>
-            })}
+                {data && data.length > 0 && filteredData.map((item: any) => {
+                    return <SelectItem key={item.code} value={item.code} tabIndex={-1} onClick={(e:any) => {setValue(item.name); setOpen(false); onChange(e)}}>{item.name}</SelectItem>
+                })}
+                {filteredData.length === 0 && <SelectItem>No Result Found</SelectItem> }
             </div>
 
         </div>
