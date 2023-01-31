@@ -50,7 +50,7 @@ export const Select: Props = ({ setFormValue, setError, error, ...props }) => {
         </SearchResults>
       )}
 
-      <Icon type="chevron-down" />
+      <Icon type={active ? 'mag' : 'chevron-down'} />
     </Wrapper>
   );
 };

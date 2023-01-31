@@ -1,12 +1,19 @@
 import { Meta, Story } from "@storybook/addon-docs";
-import { Form } from "."
+import { Form } from ".";
 
 <Meta title="Atom/Form" />
 
 # Form
 
-## Examples
+Just a helper atom to handle the submit, for the tech test I didn't need to make this more reusable hence the post.
 
-<Story name="default">
-  <Form />
-</Story>
+it accepts a single prop handleSubmit from react hook form.
+
+## Example usage
+
+```jsx
+<Form handleSubmit={handleSubmit}>
+  <input type="text" />
+  <input type="submit" />
+</Form>
+```

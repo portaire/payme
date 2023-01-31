@@ -4,6 +4,8 @@ import GlobalStylesheet from "../src/styles/globals";
 import theme from "../src/styles/theme";
 
 
+
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -12,6 +14,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  viewMode: 'docs',
 };
 
 export const decorators = [
