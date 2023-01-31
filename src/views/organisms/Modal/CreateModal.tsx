@@ -18,14 +18,14 @@ function CreateModal() {
         payment: <ModalPayment config={modalData} />,
     }
 
-    console.log(modalContext)
-    useEffect(() => {
-        const handleKeyDown = (e:any) => {
-            if (getKey('ESC') === e.keyCode) modalContext.close()
-        };
-
+    function handleModalClose() {
+        const handleKeyDown = (e:any) => getKey('ESC') === e.keyCode && modalContext.close();
         document.addEventListener('keydown', handleKeyDown);      
         return document.addEventListener('keydown', handleKeyDown);
+    }
+
+    useEffect(() => {
+        handleModalClose()
     }, [])
 
     if(!modalContext.isOpen || !doc) return <></>

@@ -1,0 +1,49 @@
+// ==========================================================================
+// # Select
+// ==========================================================================
+
+
+.select {
+
+    &__menu {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 30px;
+        }
+        
+        &::-webkit-scrollbar-button {
+            width: 0px;
+            height: 0px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: #B6B6B6;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+        }
+        
+        &::-webkit-scrollbar-thumb:hover {
+            background: #ececec;
+        }
+        
+        &::-webkit-scrollbar-thumb:active {
+            background: #ffffff;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border: 0px none #ffffff;
+            border-radius: 0px;
+        }
+        
+        &::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+            
+        &::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+    }
+}

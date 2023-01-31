@@ -28,7 +28,7 @@ function AgentListItem({ agent }:AgentListItemProps) {
     }
 
     return (
-    <article className={`transition duration-200 ease-in-out bg-[#f2efe9]/80 md:flex md:items-center md:justify-between  rounded-md ${isActive  ? "cursor-pointer hover:bg-[#f2efe9]" : "opacity-50 cursor-not-allowed"}`}>
+    <article className={`transition duration-200 ease-in-out bg-[#f2efe9]/80 md:flex md:items-center md:justify-between  rounded-md ${isActive  ? "cursor-pointer hover:bg-[#f2efe9] border hover:border-[#d1be9a]" : "opacity-50 cursor-not-allowed"}`}>
         <Link to={`/agents/${agent._id}`} className={`md:space-x-5 p-5`}>
         
             <header className="flex items-center space-x-5">
@@ -53,7 +53,7 @@ function AgentListItem({ agent }:AgentListItemProps) {
         
         </Link>
 
-        <div className="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">   
+        <div className="justify-stretch mt-6 mr-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">   
             <Button kind="outline" disabled={!isActive} onClick={() => openModalDeletePayment()}>Delete Payment</Button>
             <Button onClick={() => openModalUpdatePayment()} disabled={!isActive}>Update Payment</Button>
         </div>

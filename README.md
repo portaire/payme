@@ -58,6 +58,8 @@ Desing by components, not by pages.
 
 Good article: https://atomicdesign.bradfrost.com/chapter-2/
 
+Note: Any CSS styles should go into the same directoy. There is no point having a separate styles/components folder when we can just have the components inside the actuall component folder. It makes things faster and we reduce folders, which is always a good thing :)
+
 
 ## Styles
 
