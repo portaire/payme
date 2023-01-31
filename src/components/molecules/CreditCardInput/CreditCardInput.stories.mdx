@@ -1,0 +1,110 @@
+import { Meta, Story } from "@storybook/addon-docs";
+import { CreditCardInput } from ".";
+
+<Meta title="Molecule/CreditCardInput" />
+
+# Credit Card Input
+
+<br />
+<br />
+
+## Approach
+
+I've taken a more composable approach here, where the CreditCardInput is a wrapper around the individual components that make up the input. This allows for more flexibility in the future, and also allows for the CreditCardInput to be used in a more flexible way due to the lack of props that have to be passed to a single component.
+
+<br />
+
+This component is also polymorphic, meaning that it can be used as a div, or a
+form, or any html element depending on the use case.
+
+<b>
+  This component is designed to be used in together with useCreditCardInput in
+  @hooks
+</b>
+
+## Examples
+
+<br />
+<br />
+
+<Canvas withSource="open">
+  <Story name="default">
+    <CreditCardInput>
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-number-input">
+          Expiry Date
+        </label>
+        <CreditCardInput.CardNumber
+          id="card-number-e"
+          placeholder="Card number"
+          maxLength={19}
+        />
+      </CreditCardInput.InputWrapper>
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-expiry-date-input">
+          Expiry date
+        </label>
+        <CreditCardInput.ExpiryDate
+          id="card-expiry-date-input"
+          placeholder="MM/YY"
+          maxLength={5}
+        />
+      </CreditCardInput.InputWrapper>
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-ccv-input">
+          Card CCV
+        </label>
+        <CreditCardInput.CCV
+          type="password"
+          id="card-ccv-input"
+          placeholder="CCV"
+          maxLength={3}
+        />
+      </CreditCardInput.InputWrapper>
+    </CreditCardInput>
+  </Story>
+</Canvas>
+
+## Example Error State
+
+<br />
+<br />
+
+<Canvas withSource="open">
+  <Story name="error">
+    <CreditCardInput error="Card number is invalid">
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-number-input">
+          Expiry Date
+        </label>
+        <CreditCardInput.CardNumber
+          id="card-number-e"
+          placeholder="Card number"
+          error="card number is invalid"
+        />
+      </CreditCardInput.InputWrapper>
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-expiry-date-input">
+          Expiry date
+        </label>
+        <CreditCardInput.ExpiryDate
+          id="card-expiry-date-input"
+          placeholder="MM/YY"
+          error="Invalid card expiry date"
+        />
+      </CreditCardInput.InputWrapper>
+      <CreditCardInput.InputWrapper>
+        <label className="sr-only" htmlFor="card-ccv-input">
+          Card CCV
+        </label>
+        <CreditCardInput.CCV
+          type="password"
+          id="card-ccv-input"
+          placeholder="CCV"
+          error="Invalid CCV"
+          maxLength={3}
+        />
+      </CreditCardInput.InputWrapper>
+    </CreditCardInput>
+  </Story>
+</Canvas>

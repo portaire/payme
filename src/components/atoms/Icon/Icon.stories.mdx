@@ -1,0 +1,31 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Icon } from ".";
+
+<Meta title="Atom/Icon" />
+
+# Icon
+
+Simple icon component build to be expandable, it can be used with any icon library.
+An alternative and much better approach would be to have a SVG loader load each of the components,
+however for the sake of simplicity and time, this is the approach I took.
+
+## Examples
+
+<Canvas withSource="open">
+  <Story
+    name="default"
+    decorators={[
+      (Story) => (
+        <div style={{ display: "flex", gap: "20px" }}>
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    <Icon type="card" />
+    <Icon type="stripe" />
+    <Icon type="mag" />
+    <Icon type="chevron-down" />
+    <Icon type="pound" />
+  </Story>
+</Canvas>

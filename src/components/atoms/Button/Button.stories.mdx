@@ -1,0 +1,43 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Button } from ".";
+
+<Meta title="Atom/Button" />
+
+# Button
+
+<br />
+<br />
+
+## Approach
+
+I created the design with a min-width as through the example application the px are not rounded suggesting they are % based however,
+I have added a minimum width to ensure its not to small.
+
+<br />
+<br />
+
+## Examples
+
+<Canvas withSource="open">
+  <Story name="default">
+    <Button>Example button text</Button>
+  </Story>
+</Canvas>
+
+## Variants
+
+<Canvas withSource="open">
+  <Story
+    name="variants"
+    decorators={[
+      (Story) => (
+        <div style={{ display: "flex", gap: "20px" }}>
+          <Story />
+        </div>
+      ),
+    ]}
+  >
+    <Button>Update</Button>
+    <Button variant="secondary">Cancel</Button>
+  </Story>
+</Canvas>

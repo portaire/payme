@@ -1,17 +1,33 @@
-# Pay me
+# Portaire tech test 
 
-1. Open the design:  [Figma file](https://www.figma.com/file/BXCF9jeqEzRjuFluIHeHpt/Untitled?node-id=0%3A1&t=3s3NvLEKo543qB95-1)
-2. Set up a react app - use CRA or Vite
-3. Code the necessary components
-4. Populate the component (GET request) with data from this [API endpoint](https://portaireapi.herokuapp.com/test/payment)
-5. If by chance the API gives you more than one element in response, choose one at random
-6. Modal element on screen two should be launched by clicking the button on screen one, and should auto populate from the API
-7. Country should not auto-populate so should be selected manually by the user
-8. Card details should not auto-populate so should be entered manually by the user
-9. Please validate the card details:
-  - basic version: plain check - is it a number with proper number of digits
-  - ambitious version: [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
-10. Clicking 'Update' should send (POST request) the form details [Here](https://portaireapi.herokuapp.com/test/payment)
-11. Make a pull request to this repo
 
-ENJOY
+## What is this ?
+This is a tech test for Portaire. It is a simple web app that allows you to pay for 
+an nondescript item. 
+
+## Explanation 
+
+Hey, I've added a couple of tools from my boilerplate that I use to help me along the first thing being plop. Plop is a tool that allows you to generate files from templates. I've added a couple of templates you can use plop with `yarn generate` saves a lot of time over the long run 👀.  
+
+I've also built all of these components in storybook with variations, this is to help you understand the components and how they work (makes it easier explain components and usage async). The approach of developing in storybook first should add little to none time to your development process.
+
+I've also just created each component under a commit however, typically I would create a branch for each component and then merge them into the main branch separately.
+
+I could also have used a UI library like radix however I would like to show how I would build these components from scratch.
+
+
+## Deployments
+- [Development 👷](https://portaire-app.onrender.com/)
+- [Development Storybook](https://payme-portaire-example.onrender.com/?path=/story/atom-button--default-story)
+
+
+
+
+## What do you want to do ? 
+- [Run locally](./docs/running.md)
+- [Designs](https://www.figma.com/file/BXCF9jeqEzRjuFluIHeHpt/Portaire-Tech-Test?node-id=0%3A1&t=edpaN3adi6qLcWaz-0)
+
+
+## Questions ? 
+
+Check out the commonly asked questions [here](./docs/questions.md). 
