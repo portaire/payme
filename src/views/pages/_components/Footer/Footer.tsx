@@ -11,10 +11,10 @@ function Footer() {
         <Section className="mb-5 ">
         <Container className="py-14">
 
-            <div className="flex justify-between">
+            <div className="flex flex-col lg:flex-row justify-between">
                 
-                <div>
-                    <div className="flex flex-col mb-8">
+                <div className="mb-6 lg:mb-0">
+                    <div className="flex flex-col mb-2 md:mb-8">
                         <span className="text-lg mb-1.5">Curated weapons for military needed</span>
                         <Button onClick={() => alert("Ah, the scent of a good mystery is invigorating, don't you agree?")} style={{ "width": "fit-content" }} className="w-fit-content inline-block">Become a supplier :)</Button>
                     </div>
@@ -22,7 +22,7 @@ function Footer() {
                 </div>
 
                 <div className="flex justify-between">
-                    <div className="mr-36">
+                    <div className="lg:mr-36">
                         <h3 className="text-lg mb-1">Operations</h3>
                         <ul>
                             <li><a href="#" className="text-sm">Join us</a></li>
@@ -32,7 +32,7 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <div className="mr-36">
+                    <div className="lg:mr-36">
                         <h3 className="text-lg mb-1">Operations</h3>
                         <ul>
                             <li><a href="#" className="text-sm">Join us</a></li>

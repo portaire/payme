@@ -113,9 +113,9 @@ Futher readingL
 # Git Workflow
 The project has various branches, including:
 
-Main Branch: serves as the authoritative source for the live app
-Staging Branch: used for pre-live testing
-Dev/feature/es: used for developing new features (can be made more specific)
+Main Branch: serves as the authoritative source for the live app  
+Staging Branch: used for pre-live testing  
+Dev/feature/es: used for developing new features (can be made more specific)  
 
 When working on a feature withing a large team its a good idea to separate it in a new branch and merge it. 
 
@@ -226,6 +226,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # URL Links:
 
-Live:
-Staging:
-Development:
+Live: https://matrix-payme.vercel.app/   
+Development: matrix-payme-77zosxbpm-aurelianspodarec.vercel.app  
