@@ -36,7 +36,7 @@ export const cardPaymentHelper = {
         .slice(0, 5);
     },
 
-    formatCVC(value:string) {
+    formatCCV(value:string) {
         return this.maskInput(value, "*");
     },
 

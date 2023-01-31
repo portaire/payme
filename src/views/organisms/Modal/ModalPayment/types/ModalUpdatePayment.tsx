@@ -24,7 +24,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
     const form = useForm(null, {
         number: "",
         expiry: "",
-        cvc: "",
+        ccv: "",
         address_one: userInfo.address_one,
         address_two: userInfo.address_two,
         country: "",
@@ -80,10 +80,10 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                         name: "expiry",
                         onChange: (e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "expiry", "value": e }})
                     }}
-                    cardCVCInputProps={{ 
-                        value: form.values.cvc,
-                        name: "cvc",
-                        onChange: (e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "cvc", "value": e }}),
+                    cardCCVInputProps={{ 
+                        value: form.values.ccv,
+                        name: "ccv",
+                        onChange: (e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "ccv", "value": e }}),
                     }}
                 />
             </ModalRow>

@@ -6,7 +6,7 @@ import CardPaymentErrors from "./_components/CardPaymentError/CardPaymentErrors"
 import { cardPaymentHelper } from "./cardPaymentHelper";
 
 
-function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCInputProps}:CardPaymentInputProps) {
+function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCCVInputProps}:CardPaymentInputProps) {
     
     const [cardNumber, setCardNumer] = useState("");
     const [maskedCardNumber, setMaskedCardNumber] = useState("");
@@ -14,13 +14,13 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     const [rawExpiry, setRawExpiry] = useState("")
     const [maskedExpiry, setMaskedExpiry] = useState("")
 
-    const [rawCVC, setRawCVC] = useState("")
-    const [maskedCVC, setMaskedCVC] = useState("")
+    const [rawCCV, setRawCCV] = useState("")
+    const [maskedCCV, setMaskedCCV] = useState("")
     
 
     const inputRef = useRef<HTMLInputElement | null>(null);
     const expiryRef = useRef<HTMLInputElement | null>(null);
-    const cvcRef = useRef<HTMLInputElement | null>(null);
+    const ccvRef = useRef<HTMLInputElement | null>(null);
 
     const isError =  cardPaymentHelper.luhnCheck(cardNumber) && maskedCardNumber.length !== 0
 
@@ -65,10 +65,10 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
         })
     }
 
-    function handleCardCVCChange(e:any) {
+    function handleCardCCCVhange(e:any) {
         const starsAndDigits = e.target.value.match(/[*\d]/g);
 
-        setRawCVC((raw) => {
+        setRawCCV((raw) => {
             const digits:any = raw.split("");
         
             if (starsAndDigits) {
@@ -81,7 +81,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
             }
         
             const newraw = digits.join("");
-            setMaskedCVC(
+            setMaskedCCV(
                 cardPaymentHelper.maskCharacters(newraw)
             );
 
@@ -113,15 +113,15 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
         cardExpiryInputProps.onChange(rawExpiry)
 
         if(maskedExpiry.length === 5) {
-            if(cvcRef.current !== null) {
-                cvcRef.current.focus();
+            if(ccvRef.current !== null) {
+                ccvRef.current.focus();
             }
         }
     }, [maskedExpiry])
 
     useEffect(() => {
-        cardCVCInputProps.onChange(rawCVC)
-    }, [maskedCVC])
+        cardCCVInputProps.onChange(rawCCV)
+    }, [maskedCCV])
 
     return (
         <div className="relative">
@@ -161,15 +161,15 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
 
                 <label className="relative ml-2 flex items-center w-[70px] translate-x-[0rem] card-label" data-max="9999">
                     <input 
-                        ref={cvcRef}
+                        ref={ccvRef}
                         maxLength={3}
-                        id={cardCVCInputProps.name}
-                        name={cardCVCInputProps.name}
+                        id={cardCCVInputProps.name}
+                        name={cardCCVInputProps.name}
                         autoComplete="off" 
                         className="absolute text-sm w-full py-1 px-1 outline-none placeholder:text-[#C4C4C4]"  
-                        placeholder="CVC" 
-                        value={maskedCVC}
-                        onChange={handleCardCVCChange}
+                        placeholder="CCV" 
+                        value={maskedCCV}
+                        onChange={handleCardCCCVhange}
                         type="text"
                     />
                 </label>
@@ -196,7 +196,7 @@ interface CardPaymentInputProps {
         name: string;
         onChange: any;
     };
-    cardCVCInputProps: {
+    cardCCVInputProps: {
         id?: string;
         value: string;
         name: string;
