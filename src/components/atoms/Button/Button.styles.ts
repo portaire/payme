@@ -9,6 +9,7 @@ export const Wrapper = styled.button<{ variant: 'primary' | 'secondary' }>`
   min-width: 170px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   cursor: pointer;
+  border-radius: ${({ theme }) => theme.radius('sm')};
 
   ${({ variant, theme }) => {
     const variants = {

@@ -16,25 +16,18 @@ export const Wrapper = styled.label`
   }
 `;
 
-export const StyledInput = styled.input<{ error: string; selectValue: string }>`
+export const StyledInput = styled.input<{ error: string }>`
   ${({ theme }) => theme.typography('input')};
   display: block;
   /* remove extra width from padding */
   width: calc(
     100% - ${({ theme }) => `${theme.spacing(17)} - ${theme.spacing(15)}`}
   );
-  padding: 0;
+  padding: ${({ theme }) => `${theme.spacing(17)} ${theme.spacing(15)}`};
   border-radius: ${({ theme }) => theme.radius('sm')};
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
-  padding: ${({ theme }) => `${theme.spacing(17)} ${theme.spacing(15)}`};
-  ${({ selectValue, theme }) =>
-    selectValue &&
-    `
-    border: 1px solid ${theme.colors.outline};
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom: 1px solid ${theme.colors.outline2};
-  `};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:active,
   &:focus {

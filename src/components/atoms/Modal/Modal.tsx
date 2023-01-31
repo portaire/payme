@@ -5,6 +5,7 @@ import { Cover, Root, Trigger, Wrapper } from './Modal.styles';
 
 interface Props {
   children: ReactNode;
+  label: string;
 }
 
 export const Modal = ({ label, children }: Props) => {
@@ -12,7 +13,7 @@ export const Modal = ({ label, children }: Props) => {
   const ModalRoot = document.body;
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsOpen(false);
       }

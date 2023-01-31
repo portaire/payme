@@ -1,55 +1,56 @@
-import { useEffect, useState } from "react";
-import { useDebounce } from "../../../hooks/useDebounce";
-import { Icon } from "../../atoms/Icon";
-import { Input } from "../../atoms/Input";
-import { SearchResult, SearchResults, Wrapper } from "./Select.styles";
-import { countryList } from "./config";
+import { useState } from 'react';
+import { Icon } from '../../atoms/Icon';
+import { Input } from '../../atoms/Input';
+import { SearchResult, SearchResults, Wrapper } from './Select.styles';
+import { countryList } from './config';
 
 interface Props {}
 
-export const Select: Props = () => {
-  const [value, setValue] = useState("");
-  const [selectedValue, setSelectedValue] = useState("");
-  // debounced so we dont spam the api
-  const debouncedValue = useDebounce(value, 300);
-
-  useEffect(() => {
-    console.log(debouncedValue);
-  }, [debouncedValue]);
+export const Select: Props = ({ setFormValue, setError, error, ...props }) => {
+  const [active, setActive] = useState(false);
+  const [value, setValue] = useState('');
+  const searchedList = countryList.filter((el) =>
+    el.toLowerCase().includes(value.toLowerCase())
+  );
 
   const handleSelect = (e: React.MouseEvent<HTMLDivElement>) => {
-    setSelectedValue(e.target.textContent);
-    setValue("");
+    setError('country', '');
+    setValue(e.target.innerText);
+    setFormValue('country', e.target.innerText);
+    setActive(false);
   };
 
   return (
     <Wrapper>
       <Input
-        name="country"
         label="Country"
         placeholder="Type to search"
-        onChange={(e) =>
-          selectedValue
-            ? setSelectedValue(e.target.value)
-            : setValue(e.target.value)
-        }
-        selectValue={value}
-        value={selectedValue}
+        onChange={(e) => setValue(e.target.value)}
+        onFocus={() => {
+          setError('country', '');
+          setActive(true);
+        }}
+        autocomplete="off"
+        value={value}
+        error={error}
+        {...props}
       />
-      {debouncedValue && (
+
+      {active && (
         <SearchResults>
-          {countryList
-            .filter((el) =>
-              el.toLowerCase().includes(debouncedValue.toLowerCase())
-            )
-            .map((country) => (
+          {searchedList.length ? (
+            searchedList.map((country) => (
               <SearchResult key={country} onClick={handleSelect}>
                 {country}
               </SearchResult>
-            ))}
+            ))
+          ) : (
+            <SearchResult>No results</SearchResult>
+          )}
         </SearchResults>
       )}
-      <Icon type={debouncedValue ? "mag" : "chevron-down"} />
+
+      <Icon type="chevron-down" />
     </Wrapper>
   );
 };

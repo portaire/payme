@@ -9,7 +9,7 @@ interface Props {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: 'select';
   value: string;
-  selectValue?: string;
+  className?: string;
 }
 
 export const Input: Props = ({
@@ -18,23 +18,25 @@ export const Input: Props = ({
   placeholder,
   optional,
   onChange,
-  selectValue,
   value,
   error,
+  className,
+  form,
+  ...rest
 }: Props) => (
   <Spacer>
     <Wrapper htmlFor={`${name}-input`}>
       {label} {optional && <span>(optional)</span>}
     </Wrapper>
     <StyledInput
-      id={`${name}-input`}
+      className={className}
       name={name}
-      aria-describedby={`${name}-input-error-description`}
       placeholder={placeholder}
       onChange={onChange}
-      selectValue={selectValue}
       {...(error && { error })}
       {...(value && { value })}
+      {...form}
+      {...rest}
     />
     {error && (
       <ErrorText id={`${name}-input-error-description`}>{error}</ErrorText>

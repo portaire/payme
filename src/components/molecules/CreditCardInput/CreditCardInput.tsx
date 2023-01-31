@@ -8,6 +8,7 @@ import {
   InputWrapper,
   Root,
   StyledCardInput,
+  StyledFieldset,
 } from './CreditCardInput.styles';
 
 interface Props {
@@ -24,14 +25,14 @@ export const CreditCardInput = ({ as, error, children }: Props) => {
 
   return (
     <Component>
-      <fieldset>
+      <StyledFieldset>
         <legend className="sr-only">Credit card information</legend>
         <Root error={error}>
           <Icon type="card" />
           {children}
         </Root>
         {error && <ErrorText>{error}</ErrorText>}
-      </fieldset>
+      </StyledFieldset>
     </Component>
   );
 };

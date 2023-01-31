@@ -6,6 +6,12 @@ interface Props {
   variant?: 'primary' | 'secondary';
 }
 
-export const Button: FC<Props> = ({ variant = 'primary', children }) => (
-  <Wrapper variant={variant}>{children}</Wrapper>
+export const Button: FC<Props> = ({
+  variant = 'primary',
+  children,
+  ...rest
+}) => (
+  <Wrapper variant={variant} {...rest}>
+    {children}
+  </Wrapper>
 );

@@ -19,14 +19,14 @@ const GlobalStylesheet = createGlobalStyle`
 
   @font-face {
     font-family: "Object Sans";
-    src: url("/fonts/ObjectSans-Heavy.otf");
-    font-weight: 500;
+    src: url("/fonts/PPObjectSans-Heavy.otf");
+    font-weight: 600;
   }
   
   @font-face {
     font-family: "Object Sans";
-    src: url("/fonts/ObjectSans-Regular.otf");
-    font-weight: 400;
+    src: url("/fonts/PPObjectSans-Regular.otf");
+    font-weight: 500;
   }
 
   .sr-only:not(:focus):not(:active) {
@@ -37,6 +37,14 @@ const GlobalStylesheet = createGlobalStyle`
     position: absolute;
     white-space: nowrap; 
     width: 1px;
+  }
+
+  .App {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    place-items: center;
+    place-content: center;
   }
 `;
 

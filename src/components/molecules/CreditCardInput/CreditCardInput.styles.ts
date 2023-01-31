@@ -1,11 +1,15 @@
 import styled, { css } from 'styled-components';
 
+export const StyledFieldset = styled.fieldset`
+  margin-bottom: ${({ theme }) => theme.spacing(23)};
+`;
+
 export const Root = styled.div<{ error: string }>`
   display: grid;
-  grid-template-columns: calc(70% - ${({ theme }) => theme.spacing(40)}) 15% 15%;
+  grid-template-columns: calc(70% - ${({ theme }) => theme.spacing(40)}) 17% 13%;
   position: relative;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  padding: ${({ theme }) => theme.spacing(16)};
+  padding: 0 ${({ theme }) => theme.spacing(16)};
   /* Clear the gap with the icon */
   padding-left: ${({ theme }) => theme.spacing(34)};
   border-radius: ${({ theme }) => theme.radius('sm')};
@@ -35,6 +39,7 @@ const Reset = css`
   ${({ theme }) => theme.typography('small-input')};
   width: 100%;
   min-width: 100%;
+  padding: ${({ theme }) => theme.spacing(16)} 0;
 
   &::placeholder {
     ${({ theme }) => theme.typography('placeholder')};
