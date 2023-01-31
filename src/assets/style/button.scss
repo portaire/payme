@@ -1,0 +1,55 @@
+.buttons__wrapper {
+  display: flex;
+  gap: 8.88px;
+}
+
+.button {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 12px 32px;
+  width: 100%;
+  &.outline {
+    background-color: transparent;
+    color: #000000;
+  }
+}
+
+.stripe__button {
+  text-align: center;
+  margin-top: 20px;
+  a {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.payment__button {
+  background: #F6F6F6;
+  border: 1px solid #F9F9F9;
+  border-radius: 2px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.payment__button-icon {
+  background-color: #000000;
+  border-radius: 50%;
+  color: #ffffff;
+  width: 12px;
+  height: 12px;
+  font-size: 9px;
+  display: inline-flex;
+  vertical-align: top;
+  align-items: flex-end;
+  justify-content: center;
+}
