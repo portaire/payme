@@ -6,9 +6,9 @@ function Footer() {
     const currentTime = new Date()
 
     return (
-    <footer className="relative mx-7 border-t-[1px] border-t-black border-solid">
+    <footer className="relative mx-4 lg:mx-7 border-t-[1px] border-t-black border-solid">
 
-        <Section className="mb-5 ">
+        <Section className="mb-5">
         <Container className="py-14">
 
             <div className="flex flex-col lg:flex-row justify-between">

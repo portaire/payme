@@ -4,8 +4,8 @@ import { Container, Section } from "views/_ui";
 
 function Agents() {
     return (
-        <Section id="agents" className="my-24">
-        <Container className="max-w-7xl px-7">
+        <Section id="agents" className="mt-24 mb-6 md:my-24">
+        <Container className="max-w-7xl px-4 md:px-7">
       
             <Heading title="Matrix Agents" />
             <AgentListTemplate />

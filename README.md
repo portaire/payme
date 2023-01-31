@@ -101,10 +101,18 @@ Use descriptive names, such as 'PersonIndex' and 'PersonView' instead of 'People
 ## Files
 Instead of naming files 'index', use descriptive names such as 'PersonIndex'. This helps to easily distinguish files in code editors, such as VSCode. Otherwise you'll have lots of 'index' tabs open at the top hard to navigate.
 
+Example:
+```
+/Dog
+├── DogIndex - Shows all dogs
+├── DogView - Single dog, usually fetched by ID
+```
+
+
 ## Reference Link 
 Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
 
-Futher readingL
+Futher reading:
 - https://github.com/adamwathan/laracon2017  
 - https://restfulapi.net/resource-naming/  
 - https://www.youtube.com/watch?v=MF0jFKvS4SI  
@@ -113,9 +121,9 @@ Futher readingL
 # Git Workflow
 The project has various branches, including:
 
-Main Branch: serves as the authoritative source for the live app  
-Staging Branch: used for pre-live testing  
-Dev/feature/es: used for developing new features (can be made more specific)  
+**Main Branch:** serves as the authoritative source for the live app  
+**Staging Branch:** used for pre-live testing  
+**Dev/feature/es:** used for developing new features (can be made more specific)  
 
 When working on a feature withing a large team its a good idea to separate it in a new branch and merge it. 
 
@@ -123,12 +131,12 @@ When working on a feature withing a large team its a good idea to separate it in
 
 Workflow when commiting or pushing, written by [Robin  Wieruch](https://www.robinwieruch.de/git-team-workflow/)
 
-- feat: actual feature implementation  
-- style: code style and code clean up  
-- test: actual test implementation  
-- fix: bug fix  
-- refactor: refactoring that doesn't affect the behavior of the code  
-- chore: no production code changes, but more like configuration and setup  
+- **feat**: actual feature implementation  
+- **style**: code style and code clean up  
+- **test**: actual test implementation  
+- **fix**: bug fix  
+- **refactor**: refactoring that doesn't affect the behavior of the code  
+- **chore**: no production code changes, but more like configuration and setup  
 
 Commit message could look like the following:  
 

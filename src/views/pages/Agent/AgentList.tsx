@@ -8,7 +8,7 @@ function AgentList() {
     return (
         <div>
             <Section id="agents" className="my-24">
-            <Container className="max-w-7xl px-7">
+            <Container className="max-w-7xl px-3 md:px-7">
             
                 <AgentListTemplate />
 

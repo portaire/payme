@@ -8,7 +8,7 @@ function Quote({quote, author, company}:QuoteProps) {
             <div className="max-w-[600px] mx-auto text-center h-full py-8 text-white flex flex-col justify-between align-center items-center ">
                 
                 <div className="h-full flex flex-col">
-                    <p className="text-2xl font-light mb-5">“<span dangerouslySetInnerHTML={{__html: quote}} />”</p>
+                    <p className="text-md md:text-xl lg:text-2xl font-light mb-5">“<span dangerouslySetInnerHTML={{__html: quote}} />”</p>
                     <div className="flex flex-col">
                         <span className="text-sm">{author}</span>
                         <a href={company?.link} className="font-medium underline text-sm">{company?.name}</a>
