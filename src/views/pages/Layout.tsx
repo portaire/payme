@@ -12,16 +12,13 @@ function Layout() {
 
             <CreateModal />
 
-
-            <Header />
-            <div className="flex flex-col h-full overflow-hidden">
-
+            <div className=" overflow-x-hidden overflow-y-auto">
+                <Header />
                 <main className="w-full h-full">
                     <CustomRoutes />
                 </main>
-
+                <Footer />
             </div>
-            <Footer />
 
         </BrowserRouter>
     )

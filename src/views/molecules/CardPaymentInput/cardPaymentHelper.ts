@@ -1,18 +1,9 @@
 export const cardPaymentHelper = {
-
-    // OTHER
     maskInput(value:any, char:string) {
         return value.replace(/[0-9]/g, char);
     },
-
-
-
-
-    // Formatting
+    
     formatCardNumber(value:string) {
-        // if(value === null ||  value === undefined) return;
-        // return value.replace(/\D/g,'').replace(/(\d{4})/g, '$1 ').trim();
-
         let masked = "";
         let count = 0;
     
@@ -36,10 +27,6 @@ export const cardPaymentHelper = {
         return this.maskInput(value, "*");
     },
 
-
-
-
-    // VALIDATION
     luhnCheck(val:any) {
         let checksum = 0;
         let j = 1;

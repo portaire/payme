@@ -1,5 +1,5 @@
 import { SVGPoweredByStripe } from "assets/svg/PoweredByStripe";
-import Button from "views/atoms/Button/Button";
+import { Button } from "views/atoms/";
 
 function ModalFooter({actionTitle, handleCancel, handleAction}:any) {
     return (

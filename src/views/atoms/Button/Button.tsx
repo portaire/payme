@@ -33,11 +33,12 @@
             onClick={onClick}
             disabled={disabled}
             className={`
-                ${className}
+                rounded-[3px]
                 ${block ? 'w-full' : ""}
                 ${prefix} ${kind ? `${prefix}-${kind}` : ''} 
                 ${variant ? `${prefix}-${variant}` : ''} 
-                ${size ? `${prefix}-${size}` : ''}`.trim()
+                ${size ? `${prefix}-${size}` : ''}
+                ${className}`.trim()
             }
         >
             {content}

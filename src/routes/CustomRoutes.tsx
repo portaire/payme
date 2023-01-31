@@ -17,7 +17,6 @@ function CustomRoutes() {
             element: <Home />
         },
         ...routesAgent
-        
     ]);
 
     return routes;

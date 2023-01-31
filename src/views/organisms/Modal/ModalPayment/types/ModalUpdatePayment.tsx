@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 import useModal from "hooks/useModal";
 import useForm from "hooks/useForm";
+
 import countryList from "config/countryList.json";
 
-import Input from "views/atoms/Input/Input";
-import Select from "views/atoms/Select/Select";
+import { Select, Input } from "views/atoms";
+
 
 import CardPaymentInput from "views/molecules/CardPaymentInput/CardPaymentInput";
+
 import ModalRow from '../../_components/ModalContent/ModalRow';
 import ModalFooter from '../../_components/ModalFooter';
+
 import { capitalizeFirstLetter } from 'utils/common';
 import { updateAgentPaymentAddress } from 'services/portaire/api/agent';
 

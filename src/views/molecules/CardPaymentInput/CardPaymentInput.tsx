@@ -31,10 +31,10 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
     const expiryRef = useRef<HTMLInputElement | null>(null);
     const cvcRef = useRef<HTMLInputElement | null>(null);
 
-    const isError = maskedCardNumber.length !== 0 && maskedCardNumber.length !== 19
+    // const isError = maskedCardNumber.length !== 0 && maskedCardNumber.length !== 19
 
 
-
+    const isError =  cardPaymentHelper.luhnCheck(cardNumber) && maskedCardNumber.length !== 0
     // Helpers
     // =======================================================
     function maskCharacters(str:any) {
@@ -75,6 +75,9 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
                 maskCharacters(newraw).slice(0, 12 + 3) + newraw.slice(12)
             );
             
+            newraw.trim('')
+            cardPaymentHelper.luhnCheck(newraw)
+
             return newraw;
         });
     }
@@ -108,6 +111,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCVCIn
             setMaskedCVC(
                 maskCharacters(newraw)
             );
+
             
             return newraw;
         });

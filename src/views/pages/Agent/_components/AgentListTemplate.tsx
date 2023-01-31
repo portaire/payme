@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { getAgentList } from 'services/portaire/api/agent';
 
 import agentListData from 'fakeData/agentListData';
-
-import { Container, Section } from 'views/_ui';
 import AgentListIndex from './AgentListIndex';
 
 function AgentListTemplate() {

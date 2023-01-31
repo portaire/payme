@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from 'react';
-
 import useModal from "hooks/useModal";
 import { capitalizeFirstLetter } from 'utils/common';
 
-import ModalHeader from '../_components/ModalHeader';
-import ModalFooter from '../_components/ModalFooter';
 import ModalContent from '../_components/ModalContent/ModalContent';
-import ModalRow from '../_components/ModalContent/ModalRow';
-import ModalCard from '../_components/ModalCard';
-import ModalForm from '../_components/ModalContent/ModalForm';
+import { ModalCard, ModalHeader } from '../_components';
 
 import ModalDeletePayment from './types/ModalDeletePayment';
 import ModalUpdatePayment from './types/ModalUpdatePayment';
@@ -20,7 +14,6 @@ function ModalPayment({config}:ModalPaymentProps) {
 
     function submitForm(e:any) {
         e.preventDefault();
-        // console.log("submit values", form.values)
     }
 
     function handleAction(e:any) {
@@ -43,17 +36,10 @@ function ModalPayment({config}:ModalPaymentProps) {
     return (
         <ModalCard>
             <ModalHeader title={`${capitalizeFirstLetter(option)} payment`} />
-         
-            <div>
-            {/* <ModalForm onSubmitForm={(e:any) => submitForm(e)}> */}
-                <ModalContent> 
-                    {modalOptions[option]}
-                </ModalContent>
-            {/* </ModalForm> */}
-            </div>
-           
+            <ModalContent> 
+                {modalOptions[option]}
+            </ModalContent>
         </ModalCard>
-
     )
 }
 

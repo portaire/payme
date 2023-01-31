@@ -53,7 +53,7 @@ function AgentListItem({ agent }:AgentListItemProps) {
         
         </Link>
 
-        <div className="justify-stretch mx-3 pb-6 md:py-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">   
+        <div className="justify-stretch mx-3 md:mx-6 pb-6 md:py-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">   
             <Button kind="outline" disabled={!isActive} onClick={() => openModalDeletePayment()}>Delete Payment</Button>
             <Button onClick={() => openModalUpdatePayment()} disabled={!isActive}>Update Payment</Button>
         </div>
