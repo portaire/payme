@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Structure Overview
 General structure of the webapp, and explanation of each main folder.
 
