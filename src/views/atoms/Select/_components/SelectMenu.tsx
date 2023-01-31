@@ -18,11 +18,9 @@ function SelectMenu({ open, handleSearchChange, data , filteredData, value, setV
         <div className="absolute -translate-y-[50px] h-[136px] z-50 bg-white w-full">
         <div className="relative">
 
-            {/* add icon */}
-
             <Input
                 ref={inputRef}
-                className="w-full js-select" 
+                className={`w-full js-select ${open ? "border-[#0066FF]" : ""}`} 
                 placeholder="Type to search"         
                 onChange={(e:any) => handleSearchChange(e)}  
                 name="country"
@@ -31,7 +29,7 @@ function SelectMenu({ open, handleSearchChange, data , filteredData, value, setV
             </svg>`}
             />
 
-            <div className="select__menu absolute w-full border border-gray-300 rounded-bl-[3px] rounded-br-[3px] max-h-[200px] bg-white overflow-y-auto">
+            <div className={`${open ? "border border-[#0066FF]" : ""} select__menu absolute top-[47px] w-full z-10 border-t-1 border-t-[#F9F9F9] rounded-bl-[3px] rounded-br-[3px] max-h-[200px] bg-white overflow-y-auto`}>
                 {data && data.length > 0 && filteredData.map((item: any) => {
                     return <SelectItem key={item.code} value={item.code} tabIndex={-1} onClick={(e:any) => {setValue(item.name); setOpen(false); onChange(e)}}>{item.name}</SelectItem>
                 })}

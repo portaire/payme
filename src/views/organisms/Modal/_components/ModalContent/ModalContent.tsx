@@ -1,7 +1,7 @@
 {/* TODO: Create a form builder from fields */}
 function ModalContent({children}:any) {
     return (
-        <section className="mb-5">
+        <section>
             {children}
         </section>
     )

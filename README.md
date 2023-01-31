@@ -168,8 +168,8 @@ Eventually, your app may need to be rewritten or have elements updated with spec
 
 
 ### Links
-Good article: https://betterprogramming.pub/avoiding-premature-software-abstractions-8ba2e990930a
-Dan Abramov, Redux creator talking about pre-mature optimisation - https://overreacted.io/goodbye-clean-code/
+Good article: https://betterprogramming.pub/avoiding-premature-software-abstractions-8ba2e990930a  
+Dan Abramov, Redux creator talking about pre-mature optimisation - https://overreacted.io/goodbye-clean-code/  
 
 ## The Tortoise and the Hare
 

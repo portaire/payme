@@ -17,6 +17,19 @@ export const cardPaymentHelper = {
     
         return masked;
     },
+    maskCharacters(str:any) {
+        let characters = str.split("");
+        let groups = [];
+
+        for (const i of characters.keys()) {
+            if (i % 4 === 0) {
+                groups.push("");
+            }
+            groups[groups.length - 1] += "*";
+        }
+
+        return groups.join(" ");
+    },
     formatCardExpiry(value:string) {
         return value.replace(/[^0-9]/g, '')
         .replace(/(.{2})/, '$1/')

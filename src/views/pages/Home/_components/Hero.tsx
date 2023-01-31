@@ -45,8 +45,11 @@ function Hero() {
                 </div>
                
                 <div>
-                    {/* <img className="absolute -bottom-[0] opacity-95 -right-[150px] w-[950px]" src="https://png2.cleanpng.com/sh/819a22ce29701f1991b87482b5114fea/L0KzQYm3V8EzN6JvkpH0aYP2gLBuTgNkfZ11jOd7ZT33db3slvl0cZDzRed5bHBkdH7tjB51NaV3jdc2ZHX3dbT7igZmNWZnTKo6YknpQoHqVcU6NmE9UaM6OES5QYa6UcQ2OmQ2UaM8NEKxgLBu/kisspng-sculpture-television-upload-font-true-detective-5b481b9f20c559.0891184615314523191342.png" alt="Man face" /> */}
-                    <img className="hidden md:block absolute md:-bottom-[160px] lg:-bottom-[245px] opacity-95 md:-right-[220px] lg:-right-[180px] md:w-[500px] lg:w-[650px]" src="https://i.imgur.com/lznLsVL.png" alt="Man face" />
+                   <img 
+                        className="hidden md:block absolute md:-bottom-[160px] lg:-bottom-[245px] opacity-95 md:-right-[220px] lg:-right-[180px] md:w-[500px] lg:w-[650px]" 
+                        src={require(`assets/images/sidewise-agent.png`)} 
+                        alt="Sidewise Agent" 
+                    />
                 </div>
             </div>
         </Container>

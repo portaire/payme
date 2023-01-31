@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import Button from "views/atoms/Button/Button";
 
-function Heading({ title }:any) {
+function Heading({ title }:HeadingProps) {
     return (
         <header>
         <div className="h-[1px] bg-[#111] mb-5 w-full"></div>
@@ -15,3 +14,7 @@ function Heading({ title }:any) {
 }
 
 export default Heading;
+
+interface HeadingProps {
+    title: string;
+}

@@ -26,9 +26,7 @@ function ModalDeletePayment({config}:ModalDeletePaymentProps) {
     return (
         <>
             <ModalRow>
-                <span>
-                You are about to delete payment details for user: 
-                </span>
+                <span>You are about to delete payment details for user:</span>
                 <span className="font-semibold">
                 {" "}{userInfo.first_name} {userInfo.last_name}
                 </span>

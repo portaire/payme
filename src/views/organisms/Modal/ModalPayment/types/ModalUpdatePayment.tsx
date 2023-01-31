@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
+import countryList from "config/countryList.json";
+
 import useModal from "hooks/useModal";
 import useForm from "hooks/useForm";
 
-import countryList from "config/countryList.json";
+import { capitalizeFirstLetter, isObjectEmpty } from 'utils/common';
+import { updateAgentPaymentAddress } from 'services/portaire/api/agent';
 
-import { Select, Input } from "views/atoms";
-
-
+import { Select, Input, Label } from "views/atoms";
 import CardPaymentInput from "views/molecules/CardPaymentInput/CardPaymentInput";
 
 import ModalRow from '../../_components/ModalContent/ModalRow';
 import ModalFooter from '../../_components/ModalFooter';
-
-import { capitalizeFirstLetter } from 'utils/common';
-import { updateAgentPaymentAddress } from 'services/portaire/api/agent';
 
 
 function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
@@ -34,56 +32,64 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
         post_code: userInfo.post_code
     })
 
-    async function submitForm(r?:any) {
+    const [submitLoading, setSubmitLoading] = useState(false);
+
+    async function submitForm(e?:React.MouseEvent<HTMLButtonElement>) {
         return await updateAgentPaymentAddress(form.values)
     }
 
-    async function handleAction(e:any) {
+    async function handleAction(e:React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault()
-        await submitForm()
+        setSubmitLoading(true)
+    }
+
+    const submit = async () => {
+        const res = await submitForm();
+        if(!isObjectEmpty(res)) { // Should be data error or success whatever instead
+            setSubmitLoading(false)
+            modalContext.close()
+        }
+    };
+
+    useEffect(() => {
+        if (submitLoading) submit();
+    }, [submitLoading])
+
+    function handleCancel(e:React.MouseEvent<HTMLButtonElement>) {
+        e.preventDefault()
         modalContext.close()
     }
 
-    function handleCancel(e:any) {
-        e.preventDefault()
-        modalContext.close()
-    }
-
-
-    function handleSelectChange(e:any) {
+    function handleSelectChange(e:React.MouseEvent<HTMLButtonElement>) {
         console.log("hellooo", e)
         form.handleChange( {target: { "name": "country", "value": e}});
     }
    
     return (
-         <form onSubmit={(e) => submitForm(e)}>
+         <form onSubmit={(e:any) => submitForm(e)}>
 
             <ModalRow>
                 <CardPaymentInput 
                     cardNumberInputProps={{ 
                         value: form.values.number,
                         name: "number",
-                        onChange:(e:any) => form.handleChange({ target: { "name": "number", "value": e }}),//form.handleChange(e),
-                        maskInitial: 12,
+                        onChange:(e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "number", "value": e }})
                     }}
                     cardExpiryInputProps={{ 
                         value: form.values.expiry,
                         name: "expiry",
-                        onChange: (e:any) => form.handleChange({ target: { "name": "expiry", "value": e }})
+                        onChange: (e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "expiry", "value": e }})
                     }}
                     cardCVCInputProps={{ 
                         value: form.values.cvc,
                         name: "cvc",
-                        onChange: (e:any) => form.handleChange({ target: { "name": "cvc", "value": e }}),
-                        maskInitial: 3
+                        onChange: (e: React.MouseEvent<HTMLButtonElement>) => form.handleChange({ target: { "name": "cvc", "value": e }}),
                     }}
                 />
             </ModalRow>
 
             <ModalRow>
-                <label htmlFor="email" className="block text-sm leading-2 font-medium text-skin-primary">
-                    Address line 1
-                </label>
+                <Label title="Address line 1" htmlFor="address_one" />
                 <Input  
                     id="address_one"
                     name="address_one"
@@ -98,9 +104,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             </ModalRow>
 
             <ModalRow>
-                <label htmlFor="email" className="block text-sm leading-2 font-medium text-skin-primary">
-                Address line 2
-                </label>
+                <Label title="Address line 2" htmlFor="address_two" />
                 <Input  
                     id="address_two"
                     name="address_two"
@@ -121,7 +125,6 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     placeholder="Select country"
                     data={countryList} 
                     onChange={(e:any) => handleSelectChange(e)}
-                    // onValueChange={(e:any) =>  console.log("selectchange", e)} //form.handleChange(e)}
                 />
             </ModalRow>
 
@@ -130,31 +133,26 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             <div className="flex flex-row">
 
                 <div>
-                    <label htmlFor="state" className="block text-sm leading-2 font-medium text-skin-primary">
-                    State <span className="text-[#D4D4D4]">(optional)</span>
-                    </label>
+                    <Label title="State" optional htmlFor="state"/>
                     <Input  
                         id="state"
                         name="state"
-                        className="mt-1"
+                        className="mt-1 rounded-r-none"
                         type="text"
                         placeholder="e.g. Middlesex"
                         autoComplete="street-address"
                         value={form.values.state}
                         onChange={(e:any) => form.handleChange(e)}
-                        required
                     />
 
                 </div>
 
                 <div>
-                    <label htmlFor="email" className="block text-sm leading-2 font-medium text-skin-primary">
-                    Postcode
-                    </label>
+                    <Label title="Postcode" required htmlFor="post_code"/>
                     <Input  
                         id="post_code"
                         name="post_code"
-                        className="mt-1"
+                        className="mt-1 rounded-l-none border-l-0"
                         type="text"
                         placeholder="e.g. W11 1NS"
                         autoComplete="street-address"
@@ -167,7 +165,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             </div>
             </div>
 
-            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleAction={handleAction} handleCancel={handleCancel} />
+            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} submitLoading={submitLoading} handleAction={handleAction} handleCancel={handleCancel} />
         </form>
     )
 }
