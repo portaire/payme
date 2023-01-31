@@ -66,6 +66,7 @@ function AgentListItem({ agent }:AgentListItemProps) {
 export default AgentListItem;
 
 interface AgentListItemProps {
-    agent: IAgent
+    agent: IAgent;
+    isLoading?: boolean;
 }
 
