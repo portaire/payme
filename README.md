@@ -110,7 +110,7 @@ Example:
 
 
 ## Reference Link 
-Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller"
+Reference: Inspired by Laravel's resource controller actions - https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller  
 
 Futher reading:
 - https://github.com/adamwathan/laracon2017  

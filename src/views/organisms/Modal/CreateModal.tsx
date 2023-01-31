@@ -29,7 +29,7 @@ function CreateModal() {
 
     if(!modalContext.isOpen || !doc) return <></>
     return ReactDOM.createPortal(
-        <aside 
+        <aside
             role="alertdialog" 
             aria-modal="true"
             aria-labelledby={`${modalData.option} ${modalData.type}`}
