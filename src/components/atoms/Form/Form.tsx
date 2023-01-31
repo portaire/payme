@@ -8,8 +8,13 @@ interface Props {
 }
 
 export const Form = ({ defaultValues, handleSubmit, children }: Props) => {
-  const onSubmit: SubmitHandler<IInputs> = ({ ...props }) => {
-    console.log(props, 'FROM FORM');
+  const onSubmit: SubmitHandler<IInputs> = ({ ...values }) => {
+    fetch('https://portaireapi.herokuapp.com/test/payment', {
+      method: 'POST',
+      body: JSON.stringify({
+        ...values,
+      }),
+    });
   };
 
   return <form onSubmit={handleSubmit(onSubmit)}>{children}</form>;

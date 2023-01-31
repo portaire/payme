@@ -69,7 +69,8 @@ export const UpdatePaymentMethod = ({ prevData }) => {
                       required: formErrorMessages.cardNumber.required,
                       validate: {
                         validCardNumber: (value) => {
-                          const valid = validateCardNumber(value);
+                          const trimmed = value.replaceAll(' ', '');
+                          const valid = validateCardNumber(trimmed);
                           if (!valid) {
                             return formErrorMessages.cardNumber.validCardNumber;
                           }
