@@ -1,0 +1,33 @@
+.two-column__inputs {
+  display: flex;
+  width: 100%;
+  .input {
+    max-width: 144px;
+    width: calc(100% + 0.5px);
+    position: relative;
+    &:hover, &:focus {
+      z-index: 3;
+    }
+  }
+  .label {
+    width: 100%;
+    &:first-child {
+      .input:last-child {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+    } 
+    &:last-child {
+      .input {
+        // border-left: transparent;
+        left: -1px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+    } 
+  }
+}
+
+h2.mt-0 {
+  margin-top: 0;
+}
