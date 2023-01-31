@@ -13,7 +13,7 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
     const handleSearchChange = (event: any) => {
         event.preventDefault();
         event.stopPropagation();
-        
+
         setSearchValue(event.target.value);
         onChange(event)
     };
@@ -26,6 +26,7 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
         const handleClick = (event: any) => {
             if (!event.target.closest('.js-select')) {
                 setOpen(false);
+                setSearchValue("");
             }
         }
         document.addEventListener('click', handleClick);
