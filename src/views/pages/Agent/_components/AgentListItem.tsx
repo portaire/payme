@@ -45,7 +45,7 @@ function AgentListItem({ agent }:AgentListItemProps) {
             <div>
                 <h1 className="text-2xl font-bold text-gray-900">{agent.first_name} {agent.last_name}</h1>
                 <p className="text-sm font-medium text-gray-500">
-                    Consulting agent
+                    {agent.description}
                     {/* - <time dateTime="2020-12-20">December 20, 1887</time> */}
                 </p>
             </div>

@@ -31,11 +31,18 @@ function ModalDeletePayment({config}:ModalDeletePaymentProps) {
     //     modalContext.close()
     // }
 
+    function handleAction(e:any) {
+        e.preventDefault()
+        alert("Pray tell, why would I permit such a thing?")
+        alert("Traitor! Police dispatch has been initiated.")
+    }
+
     function handleCancel(e:any) {
         e.preventDefault()
         modalContext.close()
     }
 
+    // Though I'd let you do that? Traditor! Agents have been sent. 
    
     return (
         <>
@@ -46,7 +53,7 @@ function ModalDeletePayment({config}:ModalDeletePaymentProps) {
             {" "}{userInfo.first_name} {userInfo.last_name}
             </span>
 
-            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleCancel={handleCancel} />
+            <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} handleAction={handleAction} handleCancel={handleCancel} />
         </>
     )
 }

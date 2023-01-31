@@ -16,7 +16,7 @@ function Footer() {
                 <div>
                     <div className="flex flex-col mb-8">
                         <span className="text-lg mb-1.5">Curated weapons for military needed</span>
-                        <Button style={{ "width": "fit-content" }} className="w-fit-content inline-block">Become a supplier</Button>
+                        <Button onClick={() => alert("Ah, the scent of a good mystery is invigorating, don't you agree?")} style={{ "width": "fit-content" }} className="w-fit-content inline-block">Become a supplier :)</Button>
                     </div>
                     <span className="text-xs">&copy; Copyright Portaire Unlimited {currentTime.getFullYear()}</span>
                 </div>

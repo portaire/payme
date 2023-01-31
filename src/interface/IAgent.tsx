@@ -7,6 +7,7 @@ export interface IAgent {
     "email": string;
     "first_name": string;
     "last_name": string;
+    "description": string;
     "address_one": string;
     "address_two": string;
     "state": string;
