@@ -4,7 +4,7 @@ function CardPaymentErrors({ error }:any) {
     
     const errors:any = { 
         "cardNumber": {
-            "message": "Card number incorrect - (hint: 1111 1111 1111 1111)"
+            "message": "Card number incorrect"
         } 
     }
 

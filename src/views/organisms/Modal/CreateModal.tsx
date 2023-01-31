@@ -36,7 +36,8 @@ function CreateModal() {
             aria-describedby={`${modalData.option} ${modalData.type}`}
             className={`
                 fixed top-0 right-0 bottom-0 left-0 z-50 
-                m-auto opacity-0 bg-black/50
+                m-auto opacity-0 bg-black/50 
+                p-4 overflow-y-auto
                 ${modalContext.isOpen ? 'visible opacity-100 animate-open' : 'opacity-0 hidden'} 
             `}
         >
