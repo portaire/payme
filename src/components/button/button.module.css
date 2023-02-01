@@ -1,0 +1,32 @@
+.base {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #000;
+  font-size: 14px;
+  line-height: 8px;
+}
+
+.base:hover {
+  cursor: pointer;
+}
+
+.primary {
+  composes: base;
+  color: #fff;
+  background-color: #000;
+}
+
+.primary:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+.secondary {
+  composes: base;
+  color: #000;
+  background-color: #fff;
+}
+
+.secondary:hover {
+  background-color: rgb(250, 250, 250);
+}
