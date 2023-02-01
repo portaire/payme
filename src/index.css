@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Object Sans';
+  src: url('./fonts/PPObjectSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Object Sans';
+  font-weight: bold;
+  src: url('./fonts/PPObjectSans-Heavy.otf') format('opentype');
+}
+
+* {
+  font-family: 'Object Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
