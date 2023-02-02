@@ -14,7 +14,6 @@ const PortaireRequest = async function (endpoint:string, method: 'GET' | 'POST' 
     })
 
     const content = await getResponseContent(response)
-    console.log(content)
 
     if (response.ok) return content;
     throw new RequestError(response.statusText, response.status, content)

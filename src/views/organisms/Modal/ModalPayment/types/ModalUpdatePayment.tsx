@@ -89,8 +89,8 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             </ModalRow>
 
             <ModalRow>
-                <Label title="Address line 1" htmlFor="address_one" />
-                <Input  
+                <Input
+                    label="Address line 1"
                     id="address_one"
                     name="address_one"
                     type="text"
@@ -104,8 +104,8 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             </ModalRow>
 
             <ModalRow>
-                <Label title="Address line 2" htmlFor="address_two" />
                 <Input  
+                    label="Address line 2"
                     id="address_two"
                     name="address_two"
                     type="text"
@@ -133,8 +133,9 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             <div className="flex flex-row">
 
                 <div>
-                    <Label title="State" optional htmlFor="state"/>
                     <Input  
+                        label="State"
+                        optional
                         id="state"
                         name="state"
                         className="mt-1 rounded-r-none focus:z-10 relative"
@@ -148,8 +149,8 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                 </div>
 
                 <div>
-                    <Label title="Post Code" required htmlFor="post_code"/>
                     <Input  
+                        label="Post Code"
                         id="post_code"
                         name="post_code"
                         className="mt-1 -ml-[1px] rounded-l-none"

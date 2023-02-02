@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Label from '../Label/Label';
 
 const Input: React.FC<InputProps> = (props) => {
     const {
@@ -24,29 +24,34 @@ const Input: React.FC<InputProps> = (props) => {
         value,
         onChange,
         iconRight,
-        autofocus
+        autofocus,
+        optional
     } = props;
 
-    return (
-        <div className="relative">
-        <input 
-            // {...props}     
-            id={id}
-            name={name}
-            ref={ref}
-            type={type}
-            autoComplete={autoComplete}
-            placeholder={placeholder} 
-            defaultValue={defaultValue}
-            value={value}
-            onChange={(e) => onChange(e)}
-            className={`
-                block w-full placeholder:text-[#D4D4D4] appearance-none rounded-[3px] border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
-                ${className} 
-            `}
-        />
 
-        {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
+    // input, texarea
+
+    return (
+        <div className="form-group relative">
+            {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
+            <input 
+                // {...props}    
+                id={id}
+                name={name}
+                ref={ref}
+                type={type}
+                autoComplete={autoComplete}
+                placeholder={placeholder} 
+                defaultValue={defaultValue}
+                value={value}
+                onChange={(e) => onChange(e)}
+                className={`
+                    block w-full placeholder:text-[#D4D4D4] appearance-none rounded-[3px] border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
+                    ${className} 
+                `}
+            />
+
+            {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
         </div>
     );
 }
@@ -76,4 +81,5 @@ interface InputProps {
     iconRight?: any;
     autofocus?: any;
     ref?: any;
+    optional?: boolean;
 }
