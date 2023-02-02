@@ -1,6 +1,6 @@
 function Label({ title, children, id, htmlFor, optional, className }:any) {
     return (
-        <label htmlFor={htmlFor} className={`${className} block text-sm leading-2 font-medium text-skin-primary`}>
+        <label id={id} htmlFor={htmlFor} className={`${className} block text-sm leading-2 font-medium text-skin-primary`}>
             {title ? title : children}
 
             {optional &&

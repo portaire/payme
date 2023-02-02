@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Label from "../Label/Label";
 
 import SelectMenu from "./_components/SelectMenu";
 import SelectPlaceholder from "./_components/SelectPlaceholder";
@@ -6,9 +7,14 @@ import SelectPlaceholder from "./_components/SelectPlaceholder";
 
 // TODO: Make search optional based on booolean
 function Select({ placeholder, label, data, onChange, search }:SelectProps) {
+
     const [value, setValue] = useState("");
     const [open, setOpen] = useState(false);
     const [searchValue, setSearchValue] = useState("");
+
+    const filteredData = data.filter((item: any) =>
+        item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
 
     const handleSearchChange = (event: any) => {
         event.preventDefault();
@@ -18,10 +24,6 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
         onChange(event)
     };
     
-    const filteredData = data.filter((item: any) =>
-        item.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-
     useEffect(() => {
         const handleClick = (event: any) => {
             if (!event.target.closest('.js-select')) {
@@ -33,22 +35,18 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
         return () => {
             document.removeEventListener('click', handleClick);
         }
-    }, []);
+    }, [open, searchValue]);
 
-  
-    
     return (
         <div className="relative">
-            <div onClick={() => setOpen(!open)}>
-                <label htmlFor="email" className="block text-sm mb-1 leading-2 font-medium text-skin-primary">
-                    Country
-                </label>
 
+            <div onClick={() => setOpen(!open)}>
+                {label && <Label title={label} /> }
                 {placeholder && <SelectPlaceholder value={value} placeholder={placeholder} />}
             </div>
 
             {open && 
-                <SelectMenu 
+                <SelectMenu
                     open={open}
                     handleSearchChange={handleSearchChange} 
                     data={data}
@@ -65,12 +63,12 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
 }
 export default Select;
 
-interface SelectProps {
+type SelectProps = {
     id?: string;
     name?: string;
     placeholder?: string;
     label?: string;
-    data: { name: string; code: string; }[];
+    data: { name: string; code: string }[];
     onChange?: any;
     search?: boolean;
-}
+  };

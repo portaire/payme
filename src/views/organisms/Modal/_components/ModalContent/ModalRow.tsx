@@ -1,6 +1,6 @@
-function ModalRow({children}:any) {
+function ModalRow({children, size="mb-6",className}:any) {
     return (
-        <div className="mb-6">
+        <div className={`${size} ${className  ? className : "" } `.trim()}>
             {children}
         </div>
     )

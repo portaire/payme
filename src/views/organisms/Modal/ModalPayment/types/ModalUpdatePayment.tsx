@@ -35,11 +35,11 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
     const [submitLoading, setSubmitLoading] = useState(false);
 
-    async function submitForm(e?:React.MouseEvent<HTMLButtonElement>) {
+    async function submitForm(e?:React.FormEvent<HTMLButtonElement>) {
         return await updateAgentPaymentAddress(form.values)
     }
 
-    async function handleAction(e:React.MouseEvent<HTMLButtonElement>) {
+    async function handleAction(e:React.FormEvent<HTMLButtonElement>) {
         e.preventDefault()
         setSubmitLoading(true)
     }
@@ -58,14 +58,11 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
         if (submitLoading) submit();
     }, [submitLoading])
 
-    function handleCancel(e:React.MouseEvent<HTMLButtonElement>) {
+    function handleCancel(e:React.FormEvent<HTMLButtonElement>) {
         e.preventDefault()
         ModalContextAPI.close()
     }
-
-    function handleSelectChange(e:React.MouseEvent<HTMLButtonElement>) {
-        form.handleChange( {target: { "name": "country", "value": e }});
-    }
+ 
    
     return (
          <form onSubmit={(e:any) => submitForm(e)}>
@@ -92,11 +89,10 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
             <ModalRow>
                 <Input
-                    label="Address line 1"
                     id="address_one"
                     name="address_one"
+                    label="Address line 1"
                     type="text"
-                    className="mt-1"
                     placeholder="e.g. 123 Fake St"
                     autoComplete="street-address"
                     value={form.values.address_one}
@@ -107,11 +103,10 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
             <ModalRow>
                 <Input  
-                    label="Address line 2"
                     id="address_two"
                     name="address_two"
+                    label="Address line 2"
                     type="text"
-                    className="mt-1"
                     placeholder="e.g. 123 Fake St"
                     autoComplete="street-address"
                     value={form.values.address_two}
@@ -124,45 +119,39 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                 <Select 
                     id="country"
                     name="country"
+                    label="Country"
                     placeholder="Select country..."
                     data={countryList} 
-                    onChange={(e:any) => handleSelectChange(e)}
+                    onChange={(e:any) => form.handleChange( {target: { "name": "country", "value": e }})}
                 />
             </ModalRow>
 
-
-            <div className="mb-5">
-            <div className="flex flex-row">
-
-                    <InputGroup>
-                        <Input  
-                            label="State"
-                            optional
-                            id="state"
-                            name="state"
-                            className="mt-1"
-                            type="text"
-                            placeholder="e.g. Middlesex"
-                            autoComplete="street-address"
-                            value={form.values.state}
-                            onChange={(e:any) => form.handleChange(e)}
-                        />
-                        <Input  
-                            label="Post Code"
-                            id="post_code"
-                            name="post_code"
-                            className="mt-1"
-                            type="text"
-                            placeholder="e.g. W11 1NS"
-                            autoComplete="street-address"
-                            value={form.values.post_code}
-                            onChange={(e:any) => form.handleChange(e)}
-                            required
-                        />
-                    </InputGroup>
-              
-            </div>
-            </div>
+            <ModalRow size="mb-5">
+            <InputGroup>
+                <Input  
+                    label="State"
+                    optional
+                    id="state"
+                    name="state"
+                    type="text"
+                    placeholder="e.g. Middlesex"
+                    autoComplete="street-address"
+                    value={form.values.state}
+                    onChange={(e:any) => form.handleChange(e)}
+                />
+                <Input  
+                    id="post_code"
+                    name="post_code"
+                    label="Post Code"
+                    type="text"
+                    placeholder="e.g. W11 1NS"
+                    autoComplete="street-address"
+                    value={form.values.post_code}
+                    onChange={(e:any) => form.handleChange(e)}
+                    required
+                />
+            </InputGroup>
+            </ModalRow>
 
             <ModalFooter actionTitle={`${capitalizeFirstLetter(option)}`} submitLoading={submitLoading} handleAction={handleAction} handleCancel={handleCancel} />
         </form>

@@ -2,26 +2,29 @@
 // # Input
 // ==========================================================================
 
-
-.input-group {
+.input{
+ 
+    
+    &-group {
     display: flex;
 
-    .form-group:not(:last-of-type) {
-        & input {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            @apply focus:z-10 relative;
+        .form-group:not(:last-of-type) {
+            & input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                @apply focus:z-10 relative;
+            }
         }
+
+        .form-group:not(:first-of-type) {
+            & input {
+                margin-left: -1px;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
     }
 
-    .form-group:not(:first-of-type) {
-        & input {
-            margin-left: -1px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    }
 
 }
-
-

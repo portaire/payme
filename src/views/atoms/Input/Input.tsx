@@ -25,7 +25,8 @@ const Input: React.FC<InputProps> = (props) => {
         onChange,
         iconRight,
         autofocus,
-        optional
+        optional,
+        ariaLlabel
     } = props;
 
     return (
@@ -34,10 +35,12 @@ const Input: React.FC<InputProps> = (props) => {
             {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
 
             <input 
-                // {...props}    
+                // {...props} 
+                disabled={disabled}   
                 id={id}
                 name={name}
                 ref={ref}
+                aria-label={ariaLlabel}
                 type={type}
                 required={required}
                 autoComplete={autoComplete}
@@ -47,16 +50,9 @@ const Input: React.FC<InputProps> = (props) => {
                 onChange={(e) => onChange(e)}
                 className={`
                     block w-full placeholder:text-[#D4D4D4] appearance-none rounded-[3px] border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
-                    ${className} 
-                `}
+                    mt-1 ${className ? className : ""} 
+                `.trim()}
             />
-
-
-            {/* <div className="rounded-bl-[3px] absolute w-full rounded-br-[3px] text-xs font-normal bg-[#E52727]">
-            <div className="px-1.5 py-1">
-                <span className="text-white">Please fill in the name</span>
-            </div>
-            </div> */}
 
             {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
         </div>
@@ -89,4 +85,5 @@ interface InputProps {
     autofocus?: any;
     ref?: any;
     optional?: boolean;
+    ariaLlabel?: string;
 }
