@@ -1,0 +1,21 @@
+.payment-button {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 8px;
+  border-radius: 2px;
+  background-color: var(--color-light-gray);
+  color: var(--color-black);
+}
+
+.payment-button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.payment-button:hover[aria-disabled='false'] {
+  background-color: var(--color-gray);
+}

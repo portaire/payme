@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: '100%';
+}
+
+.label {
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  line-height: 8px;
+}
+
+.optional-info {
+  font-weight: normal;
+  color: var(--color-dark-gray);
+  margin-left: 4px;
+}

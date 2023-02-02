@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 8px;
+  box-sizing: border-box;
+  height: 40px;
+  border: 1px solid var(--color-black);
+  border-radius: 3px;
+}
+
+.data:focus-within {
+  outline: none;
+  border: 1px solid var(--color-blue);
+}
+
+.data.data--error {
+  border: 1px solid var(--color-danger);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.error {
+  color: #fff;
+  background-color: var(--color-danger);
+  font-size: 12px;
+  height: 20px;
+  padding-left: 5px;
+  padding-top: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.card {
+  outline: none;
+  border: none;
+  font-size: 14px;
+}
+
+.card::placeholder {
+  color: var(--color-dark-gray);
+}
+
+.card:-ms-input-placeholder {
+  color: var(--color-dark-gray);
+}
+
+.card::-ms-input-placeholder {
+  color: var(--color-dark-gray);
+}
+
+.card-ccv {
+  composes: card;
+  width: 40px;
+}
+
+.card-date {
+  composes: card;
+  width: 60px;
+}
+
+.card-number {
+  composes: card;
+  width: 100%;
+  margin-left: 8px;
+}
+
+.card-number:focus {
+  outline: none;
+  border: none;
+}
