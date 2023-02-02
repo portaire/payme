@@ -9,7 +9,9 @@ export const FormControl: FC<FormControlProps> = ({ label, children, optionalLab
     <div className={styles.wrapper}>
       <div className={styles.label} aria-label={htmlFor}>
         {label}
-        {hasOptionalLabel && <span className={styles.optionalInfo}>{`(${optionalLabel})`}</span>}
+        {hasOptionalLabel && (
+          <span className={styles['optional-info']}>{`(${optionalLabel})`}</span>
+        )}
       </div>
       <div>{children}</div>
     </div>

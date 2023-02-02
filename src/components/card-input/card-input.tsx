@@ -2,7 +2,7 @@ import { FC } from 'react';
 import InputMask from 'react-input-mask';
 import { Icon } from 'components/icon/icon';
 import styles from './card-input.module.css';
-import { FORMAT_MM_YY } from './card-input.consts';
+import { FORMAT_MM_YY, CARD_MASKS } from './card-input.consts';
 import { CreditCardInputProps, FieldName } from './types';
 
 export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
@@ -19,7 +19,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
         <InputMask
           id="number"
           name="number"
-          mask="9999 9999 9999 9999"
+          mask={CARD_MASKS.number}
           maskChar={null}
           placeholder="Card number"
           className={styles['card-number']}
@@ -28,7 +28,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
         <InputMask
           name="expiry"
           id="expiry"
-          mask="mn/yz"
+          mask={CARD_MASKS.expiry}
           placeholder={'MM/YY'}
           maskChar={null}
           // @ts-ignore - react input mask types are not up to date
@@ -39,7 +39,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
         <InputMask
           name="ccv"
           id="ccv"
-          mask="999"
+          mask={CARD_MASKS.ccv}
           placeholder="CCV"
           type="password"
           autoComplete="off"
