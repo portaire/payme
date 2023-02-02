@@ -13,6 +13,7 @@ import CardPaymentInput from "views/molecules/CardPaymentInput/CardPaymentInput"
 
 import ModalRow from '../../_components/ModalContent/ModalRow';
 import ModalFooter from '../../_components/ModalFooter';
+import InputGroup from 'views/atoms/Input/InputGroup';
 
 
 function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
@@ -133,34 +134,32 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             <div className="mb-5">
             <div className="flex flex-row">
 
-                    {/* <Input.Group> */}
-                    <div className="input-group">
-                    <Input  
-                        label="State"
-                        optional
-                        id="state"
-                        name="state"
-                        className="mt-1"
-                        type="text"
-                        placeholder="e.g. Middlesex"
-                        autoComplete="street-address"
-                        value={form.values.state}
-                        onChange={(e:any) => form.handleChange(e)}
-                    />
-                    <Input  
-                        label="Post Code"
-                        id="post_code"
-                        name="post_code"
-                        className="mt-1"
-                        type="text"
-                        placeholder="e.g. W11 1NS"
-                        autoComplete="street-address"
-                        value={form.values.post_code}
-                        onChange={(e:any) => form.handleChange(e)}
-                        required
-                    />
-                    </div>
-                    {/* </Input.Group> */}
+                    <InputGroup>
+                        <Input  
+                            label="State"
+                            optional
+                            id="state"
+                            name="state"
+                            className="mt-1"
+                            type="text"
+                            placeholder="e.g. Middlesex"
+                            autoComplete="street-address"
+                            value={form.values.state}
+                            onChange={(e:any) => form.handleChange(e)}
+                        />
+                        <Input  
+                            label="Post Code"
+                            id="post_code"
+                            name="post_code"
+                            className="mt-1"
+                            type="text"
+                            placeholder="e.g. W11 1NS"
+                            autoComplete="street-address"
+                            value={form.values.post_code}
+                            onChange={(e:any) => form.handleChange(e)}
+                            required
+                        />
+                    </InputGroup>
               
             </div>
             </div>
