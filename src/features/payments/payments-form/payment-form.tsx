@@ -33,8 +33,6 @@ export const PaymentForm: FC<PaymentFormProps> = ({
     await onSubmit(formData);
   };
 
-  const disableSubmit = submitDisabled || Boolean(cardValidationErrors);
-
   return (
     <form id="update_payment" className={styles.paymentForm} ref={formRef}>
       <CardInput
@@ -105,7 +103,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({
           variant="primary"
           label="Update"
           type="submit"
-          disabled={disableSubmit}
+          disabled={submitDisabled}
         />
       </div>
     </form>
