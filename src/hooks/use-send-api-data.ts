@@ -2,7 +2,7 @@ import useSWRMutation from 'swr/mutation';
 import { API_URL } from 'consts/env';
 
 export const useSendApiData = (endpoint: string) => {
-  const { error, isMutating, trigger } = useSWRMutation(
+  const { error, isMutating, trigger, reset } = useSWRMutation(
     `${API_URL}/${endpoint}}`,
     async (url: string, { arg }) => {
       const response = await fetch(url, {
@@ -22,5 +22,6 @@ export const useSendApiData = (endpoint: string) => {
     error,
     isMutating,
     trigger,
+    reset,
   };
 };

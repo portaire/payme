@@ -5,7 +5,7 @@ import styles from './card-input.module.css';
 import { FORMAT_MM_YY, CARD_MASKS } from './card-input.consts';
 import { CreditCardInputProps, FieldName } from './types';
 
-export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placeholder }) => {
+export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placeholder, required }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.name as FieldName, e.target.value);
   };
@@ -24,6 +24,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placehold
           placeholder={placeholder}
           className={styles['card-number']}
           onChange={handleInputChange}
+          required={required}
         />
         <InputMask
           name="expiry"
@@ -35,6 +36,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placehold
           formatChars={FORMAT_MM_YY}
           className={styles['card-date']}
           onChange={handleInputChange}
+          required={required}
         />
         <InputMask
           name="ccv"
@@ -45,6 +47,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placehold
           autoComplete="off"
           className={styles['card-ccv']}
           onChange={handleInputChange}
+          required={required}
         />
       </div>
       {hasError && <div className={styles.error}>{error}</div>}
