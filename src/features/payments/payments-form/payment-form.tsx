@@ -38,7 +38,7 @@ export const PaymentForm: FC<PaymentFormProps> = ({
   return (
     <form id="update_payment" className={styles.paymentForm} ref={formRef}>
       <CardInput
-        error={cardValidationErrors}
+        errors={cardValidationErrors}
         onChange={handleCardDataChange}
         placeholder="Card number"
         required

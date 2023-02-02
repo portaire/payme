@@ -1,8 +1,12 @@
 export type FieldName = 'number' | 'ccv' | 'expiry';
 
+export type ValidationError = {
+  [key in FieldName]: string | undefined;
+};
+
 export interface CreditCardInputProps {
   placeholder: string;
   onChange: (fieldName: FieldName, value: string) => void;
-  error?: string;
+  errors?: ValidationError;
   required?: boolean;
 }

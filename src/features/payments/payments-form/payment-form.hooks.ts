@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { FieldName } from 'components/card-input/types';
+import { FieldName, ValidationError } from 'components/card-input/types';
 import { SelectOption } from 'components/select/types';
 import { validateCard } from 'utils/validate-card';
 import { UserFormData, UserInitialData } from './types';
 
 export const usePaymentForm = (initialData: Partial<UserInitialData>) => {
-  const [cardValidationErrors, setCardValidationErrors] = useState<string | undefined>(undefined);
+  const [cardValidationErrors, setCardValidationErrors] = useState<ValidationError>({
+    number: undefined,
+    ccv: undefined,
+    expiry: undefined,
+  });
   const [formData, setFormData] = useState<Partial<UserFormData>>({
     _id: initialData?._id ?? '',
     address_one: initialData.address_one ?? '',
@@ -25,17 +29,30 @@ export const usePaymentForm = (initialData: Partial<UserInitialData>) => {
   };
 
   const handleCardDataChange = (fieldName: FieldName, value: string) => {
-    if (!value) {
-      setCardValidationErrors('Card data is required');
-    }
-    if (fieldName === 'number') {
+    if (fieldName === 'number' && value?.length !== 16) {
       const isValid = validateCard(value);
 
-      return isValid
-        ? setCardValidationErrors(undefined)
-        : setCardValidationErrors('Card number is incorrect');
+      return setCardValidationErrors((prevState) => ({
+        ...prevState,
+        number: isValid ? undefined : 'Card number incorrect',
+      }));
     }
-    return setCardValidationErrors(undefined);
+
+    if (fieldName === 'ccv' && value?.length !== 3) {
+      return setCardValidationErrors((prevState) => ({
+        ...prevState,
+        ccv: 'Card CCV incorrect',
+      }));
+    }
+
+    if (fieldName === 'expiry' && value?.length !== 5) {
+      return setCardValidationErrors((prevState) => ({
+        ...prevState,
+        expiry: 'Card expiry incorrect',
+      }));
+    }
+
+    return setCardValidationErrors((prevState) => ({ ...prevState, [fieldName]: undefined }));
   };
 
   return {

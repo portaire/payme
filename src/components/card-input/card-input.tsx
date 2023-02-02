@@ -5,12 +5,19 @@ import styles from './card-input.module.css';
 import { FORMAT_MM_YY, CARD_MASKS } from './card-input.consts';
 import { CreditCardInputProps, FieldName } from './types';
 
-export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placeholder, required }) => {
+export const CardInput: FC<CreditCardInputProps> = ({
+  onChange,
+  errors = {},
+  placeholder,
+  required,
+}) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.name as FieldName, e.target.value);
   };
 
-  const hasError = Boolean(error);
+  const errorsArray = Object.values(errors).filter((err) => Boolean(err)) as string[];
+
+  const hasError = Boolean(errorsArray?.length);
 
   return (
     <div className={styles.wrapper}>
@@ -45,12 +52,13 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placehold
           placeholder="CCV"
           type="password"
           autoComplete="off"
+          maskChar={null}
           className={styles['card-ccv']}
           onChange={handleInputChange}
           required={required}
         />
       </div>
-      {hasError && <div className={styles.error}>{error}</div>}
+      {hasError && <div className={styles.error}>{errorsArray[0]}</div>}
     </div>
   );
 };
