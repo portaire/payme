@@ -51,7 +51,7 @@ to create template for the component inside the `src/components` directory.
     Additionally I've decided to adjust zip code label & placeholder to other components (on the designs label and placeholder have an additional spacing and I wasn't sure if that was desired), but this can be easily change if needed.
 - ### Not sending card details to test server
 
-  To reduce possibility of sending sensitive information directly from a form to a test server, I decided to validate card details on the front end part, but to not send that data along with other customer details. Additionally, there was no information on how to send those card details (provided API endpoint has no validation and it returns 200 regardless of the data format -> tested with Postman due to CORS policy).
+  To reduce possibility of sending sensitive information directly from a form to a test server, I decided to validate card details on the front end part, but to not send that data along with other customer details. Additionally, there was no information on how to send those card details (provided API endpoint has no validation and it returns 200 regardless of the data format -> tested with Postman).
 
 - ### Using css modules
 

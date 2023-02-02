@@ -6,7 +6,7 @@ import { PaymentProps } from './types';
 import styles from './payments.module.css';
 
 export const Payments: FC<PaymentProps> = ({ updatePaymentLabel, updateDisabled = false }) => {
-  const { modalOpen, openModal, closeModal, submitPayment, error, isMutating } = usePaymentsModal();
+  const { modalOpen, openModal, closeModal, submitPayment, error, submitting } = usePaymentsModal();
 
   return (
     <>
@@ -23,7 +23,7 @@ export const Payments: FC<PaymentProps> = ({ updatePaymentLabel, updateDisabled 
         title="Update payment method"
         onProceed={submitPayment}
         onAbort={closeModal}
-        proceedDisabled={isMutating}
+        proceedDisabled={submitting}
         error={Boolean(error)}
       />
     </>

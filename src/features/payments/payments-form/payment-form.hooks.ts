@@ -35,6 +35,7 @@ export const usePaymentForm = (initialData: Partial<UserInitialData>) => {
         ? setCardValidationErrors(undefined)
         : setCardValidationErrors('Card number is incorrect');
     }
+    return setCardValidationErrors(undefined);
   };
 
   return {

@@ -4,7 +4,7 @@ import { UserFormData } from 'features/payments/payments-form/types';
 
 export const usePaymentsModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const { error, reset, isMutating, trigger } = useSendApiData('test/payment');
+  const { error, reset, submit, submitting } = useSendApiData('test/payment');
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => {
@@ -14,7 +14,7 @@ export const usePaymentsModal = () => {
 
   const submitPayment = async (data: Partial<UserFormData>) => {
     try {
-      await trigger(data);
+      await submit(data);
       closeModal();
     } catch (e) {
       // TODO: handle error, right now it will be displayed to the console
@@ -22,5 +22,5 @@ export const usePaymentsModal = () => {
     }
   };
 
-  return { modalOpen, openModal, closeModal, submitPayment, error, isMutating };
+  return { modalOpen, openModal, closeModal, submitPayment, error, submitting };
 };
