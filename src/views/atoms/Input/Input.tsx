@@ -33,7 +33,9 @@ const Input: React.FC<InputProps> = (props) => {
 
     return (
         <div className="form-group relative">
+            
             {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
+
             <input 
                 // {...props}    
                 id={id}

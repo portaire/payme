@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 
 import { SVGCreditCard } from "assets/svg/CreditCard";
 
@@ -131,7 +131,8 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCCVIn
                     <SVGCreditCard />
                 </div>
                 
-                <label className="relative ml-2 flex items-center w-full card-label translate-x-[0px]">
+
+                <div className="relative ml-2 flex items-center w-full card-label translate-x-[0px]">
                     <input 
                         ref={inputRef}
                         className="absolute text-sm w-full py-1 px-1 outline-none placeholder:text-[#C4C4C4]" 
@@ -141,11 +142,12 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCCVIn
                         onChange={handleCardNumberChange}
                         type="text"
                     />
-                </label>
+                </div>
 
 
-                <label className="relative ml-2 flex items-center w-[105px] translate-x-[0rem] card-label" data-max="MM / YY 9">
+                <div className="relative ml-2 flex items-center w-[105px] translate-x-[0rem] card-label" >
                     <input 
+                        data-max="MM / YY 9"
                         ref={expiryRef}
                         maxLength={5}
                         id={cardExpiryInputProps.id} 
@@ -157,10 +159,11 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCCVIn
                         onChange={handleCardExpiryChange}
                         type="text"
                     />
-                </label>
+                </div>
 
-                <label className="relative ml-2 flex items-center w-[70px] translate-x-[0rem] card-label" data-max="9999">
+                <div className="relative ml-2 flex items-center w-[70px] translate-x-[0rem] card-label" >
                     <input 
+                        data-max="9999"
                         ref={ccvRef}
                         maxLength={3}
                         id={cardCCVInputProps.name}
@@ -172,7 +175,7 @@ function CardPaymentInput({cardNumberInputProps, cardExpiryInputProps, cardCCVIn
                         onChange={handleCardCCCVhange}
                         type="text"
                     />
-                </label>
+                </div>
             </div>
 
             {isError && <CardPaymentErrors error={"cardNumber"} />}
