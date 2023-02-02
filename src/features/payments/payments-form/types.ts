@@ -1,5 +1,6 @@
 export interface UserInitialData {
   readonly _id: string;
+  readonly __v: number;
   email: string;
   address_one: string;
   address_two: string;
@@ -10,6 +11,7 @@ export interface UserInitialData {
 
 export interface UserFormData {
   readonly _id: string;
+  readonly __v: number;
   address_one: string;
   address_two: string;
   post_code: string;

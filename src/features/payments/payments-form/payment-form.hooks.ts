@@ -17,6 +17,7 @@ export const usePaymentForm = (initialData: Partial<UserInitialData>) => {
     country: '',
     state: initialData.state,
     post_code: initialData.post_code ?? '',
+    __v: initialData?.__v ?? 0,
   });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
