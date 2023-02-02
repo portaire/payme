@@ -24,7 +24,7 @@ export const PaymentModal: FC<PaymentModalProps> = ({
   const modalData = data.length === 1 ? data[0] : data[randomize(data.length)];
 
   return (
-    <Modal open={open} title={title} key={modalData._id}>
+    <Modal open={open} title={title} key={modalData._id} onClickOutside={onAbort}>
       <PaymentForm
         initialData={modalData}
         onSubmit={onProceed}
