@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, forwardRef } from 'react';
 import Input from "views/atoms/Input/Input";
-import SelectItem from "./SelectItem";
+import SelectMenuResult from './_components/SelectMenuResult';
 
-// const InputWithRef = forwardRef((props: any, ref) => (
-//     <Input ref={ref} {...props} label="hiiiiiii" />
-// ));
-  
 function SelectMenu({ open, handleSearchChange, data, filteredData, value, setValue, setOpen, onChange }:any) {
-
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -32,14 +27,7 @@ function SelectMenu({ open, handleSearchChange, data, filteredData, value, setVa
             </svg>`}  
             />
 
- 
-
-            <div className={`${open ? "border border-[#0066FF]" : ""} select__menu absolute top-[47px] w-full z-10 border-t-1 border-t-[#F9F9F9] rounded-bl-[3px] rounded-br-[3px] max-h-[200px] bg-white overflow-y-auto`}>
-                {data && data.length > 0 && filteredData.map((item: any) => {
-                    return <SelectItem key={item.code} item={item} activeItem={value} value={item.code} tabIndex={-1} onClick={(e:any) => {setValue(item.name); setOpen(false); onChange(e)}}>{item.name}</SelectItem>
-                })}
-                {filteredData.length === 0 && <SelectItem>No Result Found</SelectItem> }
-            </div>
+            <SelectMenuResult open={open} data={data} filteredData={filteredData} value={value} setValue={setValue} setOpen={setOpen} onChange={onChange} />
 
         </div>
         </div>

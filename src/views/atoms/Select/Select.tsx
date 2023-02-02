@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Label from "../Label/Label";
 
-import SelectMenu from "./_components/SelectMenu";
+import SelectMenu from "./SelectMenu/SelectMenu";
 import SelectPlaceholder from "./_components/SelectPlaceholder";
 
 
