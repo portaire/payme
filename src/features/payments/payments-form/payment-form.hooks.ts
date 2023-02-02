@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { validateCard } from 'utils/validate-card';
 import { FieldName } from 'components/card-input/types';
-import { UserFormData, UserInitialData } from './types';
 import { SelectOption } from 'components/select/types';
+import { validateCard } from 'utils/validate-card';
+import { UserFormData, UserInitialData } from './types';
 
 export const usePaymentForm = (initialData: Partial<UserInitialData>) => {
   const [cardValidationErrors, setCardValidationErrors] = useState<string | undefined>(undefined);

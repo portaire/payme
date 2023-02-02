@@ -1,6 +1,7 @@
 export interface InputProps {
   id: string;
   type: 'number' | 'text';
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   maxLength?: number;
   name?: string;
@@ -12,5 +13,4 @@ export interface InputProps {
    * @param className - custom class name, if not specified, default class name will be used
    */
   className?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
