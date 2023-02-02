@@ -9,6 +9,13 @@
   src: url('./fonts/PPObjectSans-Heavy.otf') format('opentype');
 }
 
+:root {
+  --color-black: #000;
+  --color-blue: #0066ff;
+  --color-danger: #e52727;
+  --color-gray: #d4d4d4;
+}
+
 * {
   font-family: 'Object Sans', sans-serif;
 }
