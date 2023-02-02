@@ -5,7 +5,7 @@ import styles from './card-input.module.css';
 import { FORMAT_MM_YY, CARD_MASKS } from './card-input.consts';
 import { CreditCardInputProps, FieldName } from './types';
 
-export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
+export const CardInput: FC<CreditCardInputProps> = ({ onChange, error, placeholder }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.name as FieldName, e.target.value);
   };
@@ -21,7 +21,7 @@ export const CardInput: FC<CreditCardInputProps> = ({ onChange, error }) => {
           name="number"
           mask={CARD_MASKS.number}
           maskChar={null}
-          placeholder="Card number"
+          placeholder={placeholder}
           className={styles['card-number']}
           onChange={handleInputChange}
         />

@@ -1,0 +1,49 @@
+.payme__control {
+  height: 50px;
+  box-sizing: border-box;
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.payme__control--menu-is-open {
+  border-top: 1px solid var(--color-blue);
+  border-left: 1px solid var(--color-blue);
+  border-right: 1px solid var(--color-blue);
+  border-radius: 3px 3px 0 0;
+}
+
+.payme__control.payme__control--is-focused:not(.payme__control--menu-is-open) {
+  border-bottom: 1px solid var(--color-blue);
+  border-top: 1px solid var(--color-blue);
+  border-left: 1px solid var(--color-blue);
+  border-right: 1px solid var(--color-blue);
+  border-radius: 3px;
+}
+
+.payme__placeholder {
+  color: #d4d4d4;
+}
+
+.payme__menu {
+  border-top: none;
+  border-bottom: 1px solid var(--color-blue);
+  border-left: 1px solid var(--color-blue);
+  border-right: 1px solid var(--color-blue);
+  border-radius: 0 0 3px 3px;
+  width: 100%;
+  overflow-y: scroll;
+  background-color: #ffff;
+}
+
+.payme__option {
+  height: 34px;
+  background-color: #ffff;
+  padding: 5px 14px;
+}
+
+.payme__option.payme__option--is-focused {
+  background-color: var(--color-light-blue);
+  cursor: pointer;
+}

@@ -1,9 +1,11 @@
-import React from 'react';
+import { Payments } from 'features/payments';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div>
+      <main className="app-center">
+        <Payments updatePaymentLabel="Update payment method" />
+      </main>
     </div>
   );
 }
