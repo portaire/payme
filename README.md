@@ -67,4 +67,5 @@ to create template for the component inside the `src/components` directory.
 ## Further Improvements
 
 - creating loading indicators,
-- handling error state with proper description
+- handling error state with proper description,
+- move all text values to json file (this will help manage translations in the future if needed)
