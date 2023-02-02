@@ -30,8 +30,8 @@ function CreateModal() {
     if(!modalContext.isOpen || !doc) return <></>
     return ReactDOM.createPortal(
         <dialog
-            onClick={e => e.preventDefault()}
             open
+            onClick={e => e.preventDefault()}
             role="alertdialog" 
             aria-modal="true"
             aria-labelledby={`${modalData.option} ${modalData.type}`}

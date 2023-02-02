@@ -18,7 +18,7 @@ import ModalFooter from '../../_components/ModalFooter';
 function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
     const { id, type, title, description, onAction, option, fields } = config;
     
-    const modalContext = useModal()
+    const ModalContextAPI = useModal()
 
     const userInfo = fields[0]
     const form = useForm(null, {
@@ -44,10 +44,12 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
     }
 
     const submit = async () => {
+        // TODO: if error/fields empty, don't submit
+
         const res = await submitForm();
         if(!isObjectEmpty(res)) { // Should be data error or success whatever instead
             setSubmitLoading(false)
-            modalContext.close()
+            ModalContextAPI.close()
         }
     };
 
@@ -57,12 +59,11 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
     function handleCancel(e:React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault()
-        modalContext.close()
+        ModalContextAPI.close()
     }
 
     function handleSelectChange(e:React.MouseEvent<HTMLButtonElement>) {
-        console.log("hellooo", e)
-        form.handleChange( {target: { "name": "country", "value": e}});
+        form.handleChange( {target: { "name": "country", "value": e }});
     }
    
     return (
@@ -132,28 +133,25 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             <div className="mb-5">
             <div className="flex flex-row">
 
-                <div>
+                    {/* <Input.Group> */}
+                    <div className="input-group">
                     <Input  
                         label="State"
                         optional
                         id="state"
                         name="state"
-                        className="mt-1 rounded-r-none focus:z-10 relative"
+                        className="mt-1"
                         type="text"
                         placeholder="e.g. Middlesex"
                         autoComplete="street-address"
                         value={form.values.state}
                         onChange={(e:any) => form.handleChange(e)}
                     />
-
-                </div>
-
-                <div>
                     <Input  
                         label="Post Code"
                         id="post_code"
                         name="post_code"
-                        className="mt-1 -ml-[1px] rounded-l-none"
+                        className="mt-1"
                         type="text"
                         placeholder="e.g. W11 1NS"
                         autoComplete="street-address"
@@ -161,8 +159,9 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                         onChange={(e:any) => form.handleChange(e)}
                         required
                     />
-                </div>
-
+                    </div>
+                    {/* </Input.Group> */}
+              
             </div>
             </div>
 
