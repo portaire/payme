@@ -29,12 +29,15 @@ function CreateModal() {
 
     if(!modalContext.isOpen || !doc) return <></>
     return ReactDOM.createPortal(
-        <aside
+        <dialog
+            onClick={e => e.preventDefault()}
+            open
             role="alertdialog" 
             aria-modal="true"
             aria-labelledby={`${modalData.option} ${modalData.type}`}
             aria-describedby={`${modalData.option} ${modalData.type}`}
             className={`
+                w-full h-full
                 fixed top-0 right-0 bottom-0 left-0 z-50 
                 m-auto opacity-0 bg-black/50 
                 p-4 overflow-y-auto
@@ -44,7 +47,7 @@ function CreateModal() {
             <div className="flex m-auto relative h-full w-full items-center">
                 {modalOptions[modalData.type]}
             </div>
-        </aside>
+        </dialog>
     , doc)
 }
 

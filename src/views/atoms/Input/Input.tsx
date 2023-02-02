@@ -28,12 +28,9 @@ const Input: React.FC<InputProps> = (props) => {
         optional
     } = props;
 
-
-    // input, texarea
-
     return (
         <div className="form-group relative">
-            
+
             {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
 
             <input 
@@ -42,6 +39,7 @@ const Input: React.FC<InputProps> = (props) => {
                 name={name}
                 ref={ref}
                 type={type}
+                required={required}
                 autoComplete={autoComplete}
                 placeholder={placeholder} 
                 defaultValue={defaultValue}
@@ -52,6 +50,13 @@ const Input: React.FC<InputProps> = (props) => {
                     ${className} 
                 `}
             />
+
+
+            {/* <div className="rounded-bl-[3px] absolute w-full rounded-br-[3px] text-xs font-normal bg-[#E52727]">
+            <div className="px-1.5 py-1">
+                <span className="text-white">Please fill in the name</span>
+            </div>
+            </div> */}
 
             {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
         </div>
