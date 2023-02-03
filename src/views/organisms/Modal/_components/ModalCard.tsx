@@ -2,8 +2,8 @@ import useModal from "hooks/useModal";
 import { useEffect, useState } from "react";
 
 function ModalCard({children}:any) {
-    const modalContext = useModal()
-    const modalData = modalContext;
+    const ModalContextAPI = useModal()
+    const modalData = ModalContextAPI;
 
     const [visible, setVisible] = useState(false)
 

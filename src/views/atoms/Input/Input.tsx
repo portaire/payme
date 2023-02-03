@@ -1,23 +1,20 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Label from '../Label/Label';
-
-const Input: React.FC<InputProps> = (props) => {
-    const {
+  
+const Input = forwardRef<HTMLInputElement, InputProps>(
+    ({
         id,
         name,
-        onClick,
         className,
         placeholder,
-        ref,
-        variant = "primary",
-        kind = "outline",
+        variant = 'primary',
+        kind = 'outline',
         disabled = false,
-        fullWidth = false,
         label,
-        labelPosition = "top",
+        labelPosition = 'top',
         icon,
-        iconPosition = "right",
-        type = "text",
+        iconPosition = 'right',
+        type = 'text',
         autoComplete,
         defaultValue,
         required = false,
@@ -27,41 +24,54 @@ const Input: React.FC<InputProps> = (props) => {
         iconRight,
         autofocus,
         optional,
-        ariaLlabel
-    } = props;
-
+        ariaLabel,
+        ...props
+    }) => {
     return (
         <div className="form-group relative">
 
-            {label && <Label label={label} optional={optional} htmlFor={name} />}
+            {label && (
+                <Label
+                label={label}
+                optional={optional}
+                htmlFor={name}
+                //   labelPosition={labelPosition}
+                />
+            )}
 
             <div className="relative">
-            <input 
-                // {...props} 
-                disabled={disabled}   
-                id={id}
-                onClick={onClick}
-                name={name}
-                ref={ref}
-                aria-label={ariaLlabel}
-                type={type}
-                required={required}
-                autoComplete={autoComplete}
-                placeholder={placeholder} 
-                defaultValue={defaultValue}
-                value={value}
-                onChange={(e) => onChange(e)}
-                className={`
-                    block w-full placeholder:text-[#D4D4D4] appearance-none rounded-[3px] border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
-                    mt-1 ${className ? className : ""} 
-                `.trim()}
-            />
+                <input
+                    id={id}
+                    name={name}
+                    type={type}
+                    required={required}
+                    autoComplete={autoComplete}
+                    placeholder={placeholder}
+                    defaultValue={defaultValue}
+                    value={value}
+                    onChange={onChange}
+                    className={`
+                        block w-full placeholder:text-gray-400 appearance-none rounded border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
+                        mt-1 ${className ? className : ''} 
+                    `.trim()}
+                    disabled={disabled}
+                    aria-label={ariaLabel}
+                    autoFocus={autofocus}
+                    {...props}
+                />
 
-            {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
+                {iconRight && (
+                    <div
+                        className="absolute z-10 right-3 top-1/2 -translate-y-1/2"
+                        dangerouslySetInnerHTML={{ __html: iconRight }}
+                    />
+                )}
+
             </div>
-        </div>
-    );
-}
+            </div>
+        );
+    }
+);
 
 export default Input;
 
@@ -70,25 +80,23 @@ interface InputProps {
     name?: string;
     className?: string;
     placeholder?: string;
-    variant?: "primary" | "secondary";
-    kind?: "outline" | "filled" | "standard";
+    variant?: 'primary' | 'secondary';
+    kind?: 'outline' | 'filled' | 'standard';
     disabled?: boolean;
     fullWidth?: boolean;
     label?: string;
-    labelPosition?: "top" | "right" | "bottom" | "left";
+    labelPosition?: 'top' | 'right' | 'bottom' | 'left';
     icon?: string;
-    iconPosition?: "left" | "right";
-    type?: "number" | "email" | "tel" | "text" | "password" ;
+    iconPosition?: 'left' | 'right';
+    type?: 'number' | 'email' | 'tel' | 'text' | 'password';
     autoComplete?: string;
     defaultValue?: string;
     helperText?: string;
     required?: boolean;
     value?: any;
-    onChange?: any;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     iconRight?: any;
-    autofocus?: any;
-    ref?: any;
-    onClick?: any;
+    autofocus?: boolean;
     optional?: boolean;
-    ariaLlabel?: string;
+    ariaLabel?: string;
 }

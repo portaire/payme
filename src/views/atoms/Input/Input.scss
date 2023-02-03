@@ -11,6 +11,7 @@
         .form-group {
             margin-left: -1px;
         }
+
         .form-group:not(:last-of-type) {
             & input {
                 margin-left: 0px;
@@ -19,6 +20,7 @@
                 @apply focus:z-10 relative;
             }
         }
+        
         .form-group:not(:first-of-type) {
             & input {
                 margin-left: 0px;
