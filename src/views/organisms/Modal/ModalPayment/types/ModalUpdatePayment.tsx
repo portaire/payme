@@ -93,6 +93,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     name="address_one"
                     label="Address line 1"
                     type="text"
+                    ariaLabel="Enter your Address Line One"
                     placeholder="e.g. 123 Fake St"
                     autoComplete="street-address"
                     value={form.values.address_one}
@@ -106,6 +107,7 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
                     id="address_two"
                     name="address_two"
                     label="Address line 2"
+                    ariaLabel="Enter your Address Line Two"
                     type="text"
                     placeholder="e.g. 123 Fake St"
                     autoComplete="street-address"
@@ -129,20 +131,22 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
             <ModalRow size="mb-5">
             <InputGroup>
                 <Input  
-                    label="State"
-                    optional
                     id="state"
                     name="state"
+                    label="State"
+                    ariaLabel="Enter your State"
                     type="text"
                     placeholder="e.g. Middlesex"
                     autoComplete="street-address"
                     value={form.values.state}
                     onChange={(e:any) => form.handleChange(e)}
+                    optional
                 />
                 <Input  
                     id="post_code"
                     name="post_code"
                     label="Post Code"
+                    ariaLabel="Enter your Post code"
                     type="text"
                     placeholder="e.g. W11 1NS"
                     autoComplete="street-address"

@@ -25,49 +25,52 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         autofocus,
         optional,
         ariaLabel,
+        as = "Input",
         ...props
     }) => {
-    return (
-        <div className="form-group relative">
+    
+        const Tag = `${as}` as React.ElementType;
 
-            {label && (
-                <Label
-                label={label}
-                optional={optional}
-                htmlFor={name}
-                //   labelPosition={labelPosition}
-                />
-            )}
+        return (
+            <div className="form-group relative">
 
-            <div className="relative">
-                <input
-                    id={id}
-                    name={name}
-                    type={type}
-                    required={required}
-                    autoComplete={autoComplete}
-                    placeholder={placeholder}
-                    defaultValue={defaultValue}
-                    value={value}
-                    onChange={onChange}
-                    className={`
-                        block w-full placeholder:text-gray-400 appearance-none rounded border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
-                        mt-1 ${className ? className : ''} 
-                    `.trim()}
-                    disabled={disabled}
-                    aria-label={ariaLabel}
-                    autoFocus={autofocus}
-                    {...props}
-                />
-
-                {iconRight && (
-                    <div
-                        className="absolute z-10 right-3 top-1/2 -translate-y-1/2"
-                        dangerouslySetInnerHTML={{ __html: iconRight }}
+                {label && (
+                    <Label
+                        label={label}
+                        optional={optional}
+                        htmlFor={name}
                     />
                 )}
 
-            </div>
+                <div className="relative">
+                    <Tag
+                        id={id}
+                        name={name}
+                        type={type}
+                        required={required}
+                        autoComplete={autoComplete}
+                        placeholder={placeholder}
+                        defaultValue={defaultValue}
+                        value={value}
+                        onChange={onChange}
+                        className={`
+                            block w-full placeholder:text-gray-400 appearance-none rounded border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
+                            mt-1 ${className ? className : ''} 
+                        `.trim()}
+                        disabled={disabled}
+                        aria-label={ariaLabel}
+                        autoFocus={autofocus}
+                        {...props}
+                    />
+
+                    {iconRight && (
+                        <div
+                            className="absolute z-10 right-3 top-1/2 -translate-y-1/2"
+                            dangerouslySetInnerHTML={{ __html: iconRight }}
+                        />
+                    )}
+
+                </div>
             </div>
         );
     }
@@ -99,4 +102,5 @@ interface InputProps {
     autofocus?: boolean;
     optional?: boolean;
     ariaLabel?: string;
+    as?: string | "textarea" | "input";
 }
