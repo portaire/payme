@@ -1,4 +1,4 @@
-function Label({ label, children, id, htmlFor, optional, className }:LabelProps) {
+function Label({ id, label, children, htmlFor, optional, className }:LabelProps) {
     return (
         <label id={id} htmlFor={htmlFor} className={`${className} block text-sm leading-2 font-medium text-skin-primary`}>
             {label ? <span>{label}</span> : children}
@@ -10,9 +10,9 @@ function Label({ label, children, id, htmlFor, optional, className }:LabelProps)
 export default Label;
 
 interface LabelProps {
+    id?: string;
     label?: string;
     children?: React.ReactNode;
-    id?: string;
     htmlFor?: string;
     optional?: boolean;
     className?: string;
