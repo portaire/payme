@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = (props) => {
     return (
         <div className="form-group relative">
 
-            {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
+            {label && <Label label={label} optional={optional} htmlFor={name} />}
 
             <div className="relative">
             <input 
