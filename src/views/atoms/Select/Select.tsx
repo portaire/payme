@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Label from "../Label/Label";
 
 import SelectMenu from "./SelectMenu/SelectMenu";
 import SelectPlaceholder from "./_components/SelectPlaceholder";
@@ -9,7 +8,7 @@ import SelectPlaceholder from "./_components/SelectPlaceholder";
 function Select({ placeholder, label, data, onChange, search }:SelectProps) {
 
     const [value, setValue] = useState("");
-    const [open, setOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchValue, setSearchValue] = useState("");
 
     const filteredData = data.filter((item: any) =>
@@ -27,7 +26,7 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
     useEffect(() => {
         const handleClick = (event: any) => {
             if (!event.target.closest('.js-select')) {
-                setOpen(false);
+                setIsMenuOpen(false);
                 setSearchValue("");
             }
         }
@@ -35,25 +34,24 @@ function Select({ placeholder, label, data, onChange, search }:SelectProps) {
         return () => {
             document.removeEventListener('click', handleClick);
         }
-    }, [open, searchValue]);
+    }, [isMenuOpen, searchValue]);
 
     return (
         <div className="relative">
 
-            <div onClick={() => setOpen(!open)}>
-                {label && <Label title={label} /> }
-                {placeholder && <SelectPlaceholder value={value} placeholder={placeholder} />}
+            <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {placeholder && <SelectPlaceholder value={value} label={label} placeholder={placeholder} />}
             </div>
 
-            {open && 
+            {isMenuOpen && 
                 <SelectMenu
-                    open={open}
+                    open={isMenuOpen}
                     handleSearchChange={handleSearchChange} 
                     data={data}
                     value={value}
                     filteredData={filteredData}
                     setValue={setValue}
-                    setOpen={setOpen}
+                    setOpen={setIsMenuOpen}
                     onChange={onChange}
                 /> 
             }

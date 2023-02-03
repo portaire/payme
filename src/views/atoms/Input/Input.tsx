@@ -5,6 +5,7 @@ const Input: React.FC<InputProps> = (props) => {
     const {
         id,
         name,
+        onClick,
         className,
         placeholder,
         ref,
@@ -34,10 +35,12 @@ const Input: React.FC<InputProps> = (props) => {
 
             {label && <Label optional={optional} htmlFor={name}>{label}</Label>}
 
+            <div className="relative">
             <input 
                 // {...props} 
                 disabled={disabled}   
                 id={id}
+                onClick={onClick}
                 name={name}
                 ref={ref}
                 aria-label={ariaLlabel}
@@ -55,6 +58,7 @@ const Input: React.FC<InputProps> = (props) => {
             />
 
             {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
+            </div>
         </div>
     );
 }
@@ -84,6 +88,7 @@ interface InputProps {
     iconRight?: any;
     autofocus?: any;
     ref?: any;
+    onClick?: any;
     optional?: boolean;
     ariaLlabel?: string;
 }

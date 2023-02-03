@@ -6,10 +6,10 @@ function SelectMenu({ open, handleSearchChange, data, filteredData, value, setVa
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
+        console.log(inputRef)
         if (open && inputRef.current) {
             inputRef.current.focus();
         }
-        
     }, [open]);
 
     return (

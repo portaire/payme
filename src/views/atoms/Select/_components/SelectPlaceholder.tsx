@@ -1,11 +1,12 @@
 import Input from "views/atoms/Input/Input";
 
-function SelectPlaceholder({ value, placeholder }:any) {
+function SelectPlaceholder({ value, label, placeholder }:any) {
     const emptyValue = value === "";
 
     return (
         <Input 
             className="js-select bg-white"
+            label={label}
             value={emptyValue ? placeholder : value} 
             disabled 
             iconRight={`<svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
