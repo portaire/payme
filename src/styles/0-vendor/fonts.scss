@@ -1,0 +1,110 @@
+// ==========================================================================
+// # Vendor: Fonts
+// ==========================================================================
+//
+//  Table of Contents
+//  - PP Object Sans
+//
+//
+
+
+
+// # Fonts: PP Object Sans
+// ==========================================================================
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Black.woff') format('woff'), 
+        url('./../../assets/fonts/PPObjectSans/PPObjectSans-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-BlackSlanted.woff') format('woff'),
+         url('./../../assets/fonts/PPObjectSans/PPObjectSans-HeavySlanted.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-BoldSlanted.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-LightSlanted.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-ThinSlanted.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-MediumSlanted.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP Object Sans';
+    src: url('./../../assets/fonts/PPObjectSans/PPObjectSans-Slanted.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
