@@ -5,17 +5,15 @@ import { getAgentList } from 'services/portaire/api/agent';
 
 
 function AgentView() {
-
     const [agent, setAgent] = useState<IAgent|undefined>(undefined)
 
-    async function fetchAgentList() {
+    async function fetchAgent() {
         const res:any = await getAgentList()
         setAgent({...res[0]})
-        console.log(res[0])
     }
 
     useEffect(() => {
-        fetchAgentList()
+        fetchAgent()
     }, [])
 
     return (

@@ -33,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <div className="form-group relative">
-
+                
                 {label && (
                     <Label
                         label={label}
@@ -63,6 +63,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                         {...props}
                     />
 
+                    {/* TODO: Make it so the user can choose either left or right */}
                     {iconRight && (
                         <div
                             className="absolute z-10 right-3 top-1/2 -translate-y-1/2"

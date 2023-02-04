@@ -8,12 +8,12 @@ import useForm from "hooks/useForm";
 import { capitalizeFirstLetter, isObjectEmpty } from 'utils/common';
 import { updateAgentPaymentAddress } from 'services/portaire/api/agent';
 
-import { Select, Input, Label } from "views/atoms";
-import CardPaymentInput from "views/molecules/CardPaymentInput/CardPaymentInput";
+import InputGroup from 'views/atoms/Input/InputGroup';
+import { Select, Input } from "views/atoms";
+import { CardPaymentInput } from 'views/molecules';
 
 import ModalRow from '../../_components/ModalContent/ModalRow';
 import ModalFooter from '../../_components/ModalFooter';
-import InputGroup from 'views/atoms/Input/InputGroup';
 
 
 function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
@@ -46,7 +46,6 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
 
     const submit = async () => {
         // TODO: if error/fields empty, don't submit
-
         const res = await submitForm();
         if(!isObjectEmpty(res)) { // Should be data error or success whatever instead
             setSubmitLoading(false)
@@ -63,7 +62,6 @@ function ModalUpdatePayment({config}:ModalUpdatePaymentProps) {
         ModalContextAPI.close()
     }
  
-   
     return (
          <form onSubmit={(e:any) => submitForm(e)}>
 

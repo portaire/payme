@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { getKey } from 'utils/keyCodes';
@@ -6,12 +6,14 @@ import { getKey } from 'utils/keyCodes';
 import useModal from 'hooks/useModal';
 import ModalPayment from './ModalPayment/ModalPayment';
 
+// TODO: When modal closes, remove it
+// TODO: Add transition out when it closes
 
 const doc = document.getElementById('root');
-
 function CreateModal() {
     const modalContext = useModal()
     const modalData = modalContext.data;
+    const modalRef:any = useRef(undefined)
 
     const modalOptions:any = {
         payment: <ModalPayment config={modalData} />,
@@ -27,9 +29,10 @@ function CreateModal() {
         handleModalClose()
     }, [])
 
-    if(!modalContext.isOpen || !doc) return <></>
+    if(!modalContext.open || !doc) return <></>
     return ReactDOM.createPortal(
         <dialog
+            ref={modalRef}
             open
             onClick={e => e.preventDefault()}
             role="alertdialog" 
@@ -39,9 +42,10 @@ function CreateModal() {
             className={`
                 w-full h-full
                 fixed top-0 right-0 bottom-0 left-0 z-50 
-                m-auto opacity-0 bg-black/50 
-                p-4 overflow-y-auto
-                ${modalContext.isOpen ? 'visible opacity-100 animate-open' : 'opacity-0 hidden'} 
+                overflow-y-auto m-auto
+                opacity-0 bg-black/50 
+                p-4 
+                ${modalContext.isOpen ? 'visible opacity-100 ' : 'opacity-0 hidden'} 
             `}
         >
             <div className="flex m-auto relative h-full w-full items-center">
