@@ -1,0 +1,52 @@
+.updatePaymentForm {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+}
+
+.updatePaymentForm__buttons {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "button1 spacing button2";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: calc(50% - 5px) 10px calc(50% - 5px);
+    margin: 10px 0 20px 0;
+}
+
+.updatePaymentForm__button1 {
+    grid-area: button1;
+}
+
+.updatePaymentForm__button2 {
+    grid-area: button2;
+}
+
+.updatePaymentForm__inputs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.updatePaymentForm__inputs > div:first-of-type > label > input {
+    border-radius: 3px 0 0 3px;
+    border-right: none;
+}
+
+.updatePaymentForm__inputs > div:last-of-type > label > input {
+    border-radius: 0 3px 3px 0;
+}
+
+
+.updatePaymentForm__input {
+    width: 50%;
+}
+
+.updatePaymentForm__dataSaved {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: darkseagreen;
+    margin-bottom: 10px;
+}
