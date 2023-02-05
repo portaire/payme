@@ -1,0 +1,97 @@
+.input,
+.inputs__creditCard {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 212, 212, 1);
+    border-radius: 3px;
+    padding: 17px 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.inputs__creditCard[data-error = "true"],
+.input[data-error = "true"]{
+    border: 1px #E52727 solid;
+    border-radius: 3px 3px 0 0;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(212, 212, 212, 1);
+}
+
+::-moz-placeholder {
+    color: rgba(212, 212, 212, 1);
+}
+
+::placeholder {
+    color: rgba(212, 212, 212, 1);
+}
+
+.input:focus {
+    border: 1px solid #000;
+    outline: 0;
+}
+
+.input__label {
+    width: 100%;
+    display: inline-block;
+}
+
+.input__title {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 8px;
+}
+
+.inputs__creditCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.input__creditCard {
+    height: 100%;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.input__creditCard::-webkit-outer-spin-button,
+.input__creditCard::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input__creditCard[type=number] {
+    -moz-appearance: textfield;
+}
+
+.input__input__creditCard__exp {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.inputs__creditCard__cardNumber {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputs__creditCard__wrapper {
+    width: 100%;
+}
+
+.input__error,
+.inputs__creditCard__error {
+    background: #E52727;
+    padding: 6px;
+    color: #FFF;
+    font-size: 13px;
+    border-radius: 0 0 3px 3px;
+}
+
