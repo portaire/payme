@@ -1,7 +1,12 @@
 import React from "react";
 import Card from "../svg/Card";
 
-function Modal() {
+function Modal({ setShowModal }) {
+
+    const handleCancel = () => {
+        setShowModal(false);
+    }
+
   return (
     <div className="modal-window">
       <div className="modal-box">
@@ -100,7 +105,7 @@ function Modal() {
             </div>
           </div>
           <div className="flex btns-box">
-            <button className="btn secondary-btn">Cancel</button>
+            <button className="btn secondary-btn" onClick={handleCancel}>Cancel</button>
             <button className="btn primary-btn">Update</button>
           </div>
         </form>
