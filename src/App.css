@@ -1,8 +1,13 @@
 :root {
   --white: #ffffff;
+  --black: #000000;
   --lightGrey: #f6f6f6;
   --mediumGrey: #f9f9f9;
+  --grey: #C4C4C4;
+  --borderGrey: #D4D4D4;
+  --greyshadow: rgba(0, 0, 0, 0.2);
   --darkBg: rgba(0, 0, 0, 0.25);
+  --focus: #0066FF;
 }
 
 html {
@@ -15,6 +20,18 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
 .task-bar-btn {
@@ -42,9 +59,123 @@ html {
 
 .modal-box {
   background-color: var(--white);
-  /* width: 410px; */
-  /* height: 58.4rem; */
   border-radius: 1rem;
   padding: 3rem;
   box-shadow: 0 0 1rem 0 var(--darkBg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+label {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.input {
+  box-sizing: border-box;
+  border-radius: .3rem;
+  border: .1rem solid var(--borderGrey);
+  width: 35rem;
+  padding: .8rem;
+  height: 5rem;
+}
+
+.card-input-box {
+  border: .1rem solid var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.card-box-1 {
+  gap: .8rem;
+}
+
+.card-box-2 {
+  gap: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--grey);
+}
+
+.exp-input {
+  width: 6rem;
+}
+
+.cvv-input {
+  width: 4.3rem;
+}
+
+.inner-input {
+  border: none;
+}
+
+.select {
+  appearance: none;
+  background: url("../public/arrow.svg") no-repeat 96% center;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--focus);
+  background: url("../public/search.svg") no-repeat 96% center;
+}
+
+.optional-text {
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.combo-inputs input {
+  width: 17.5rem;
+}
+
+.combo-input-1 {
+  border-radius: .3rem 0 0 .3rem;
+}
+
+.combo-input-2 {
+  border-radius: 0 .3rem .3rem 0;
+  margin-left: -0.1rem;
+}
+
+.btns-box {
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 1.6rem 6.3rem;
+  border: none;
+  border-radius: .3rem;
+}
+
+.primary-btn {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.secondary-btn {
+  background-color: var(--white);
+  border: .1rem solid var(--black);
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
