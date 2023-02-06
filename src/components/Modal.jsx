@@ -3,7 +3,15 @@ import getDataService from "../services/data.services";
 import Card from "../svg/Card";
 
 function Modal({ setShowModal }) {
-  const [data, setData] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [state, setState] = useState("");
+  const [postCode, setPostCode] = useState("");
+
+  const handleAddress1Change = (e) => setAddress1(e.target.value);
+  const handleAddress2Change = (e) => setAddress2(e.target.value);
+  const handleStateChange = (e) => setState(e.target.value);
+  const handlePostCodeChange = (e) => setPostCode(e.target.value);
 
   useEffect(() => {
     getData();
@@ -14,7 +22,10 @@ function Modal({ setShowModal }) {
       const response = await getDataService();
       const randomData =
         response.data[Math.floor(Math.random() * response.data.length)];
-      setData(randomData);
+      setAddress1(randomData.address_one);
+      setAddress2(randomData.address_two);
+      setState(randomData.state);
+      setPostCode(randomData.post_code);
     } catch (error) {
       throw error;
     }
@@ -68,7 +79,8 @@ function Modal({ setShowModal }) {
               name="address1"
               id="address1"
               placeholder="e.g. 123 Fake St"
-              value={data.address_one}
+              onChange={handleAddress1Change}
+              value={address1}
             />
           </div>
 
@@ -81,7 +93,8 @@ function Modal({ setShowModal }) {
               name="address1"
               id="address1"
               placeholder="e.g. 123 Fake St"
-              value={data.address_two}
+              onChange={handleAddress2Change}
+              value={address2}
             />
           </div>
 
@@ -111,7 +124,8 @@ function Modal({ setShowModal }) {
                 name="state"
                 id="state"
                 placeholder="e.g. Middlesex"
-                value={data.state}
+                onChange={handleStateChange}
+                value={state}
               />
             </div>
 
@@ -124,7 +138,8 @@ function Modal({ setShowModal }) {
                 name="postcode"
                 id="postcode"
                 placeholder="e.g. Middlesex"
-                value={data.post_code}
+                onChange={handlePostCodeChange}
+                value={postCode}
               />
             </div>
           </div>
