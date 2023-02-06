@@ -130,10 +130,14 @@ input::placeholder {
   background: url("../public/arrow.svg") no-repeat 96% center;
 }
 
-select:focus {
+select:active {
   outline: none;
   border-color: var(--focus);
   background: url("../public/search.svg") no-repeat 96% center;
+}
+
+select:disabled {
+  color: red;
 }
 
 .optional-text {

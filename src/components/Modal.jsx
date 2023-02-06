@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import getDataService from "../services/data.services";
 import Card from "../svg/Card";
 
 function Modal({ setShowModal }) {
+  const [data, setData] = useState("");
 
-    const handleCancel = () => {
-        setShowModal(false);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await getDataService();
+      const randomData =
+        response.data[Math.floor(Math.random() * response.data.length)];
+      setData(randomData);
+    } catch (error) {
+      throw error;
     }
+  };
+
+  const handleCancel = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="modal-window">
@@ -51,6 +68,7 @@ function Modal({ setShowModal }) {
               name="address1"
               id="address1"
               placeholder="e.g. 123 Fake St"
+              value={data.address_one}
             />
           </div>
 
@@ -63,6 +81,7 @@ function Modal({ setShowModal }) {
               name="address1"
               id="address1"
               placeholder="e.g. 123 Fake St"
+              value={data.address_two}
             />
           </div>
 
@@ -70,6 +89,9 @@ function Modal({ setShowModal }) {
           <div className="column">
             <label htmlFor="country">Country</label>
             <select className="input select">
+              <option value="" disabled selected>
+                Select your Country
+              </option>
               <option value="countryA">Country A</option>
               <option value="countryB">Country B</option>
               <option value="countryC">Country C</option>
@@ -89,6 +111,7 @@ function Modal({ setShowModal }) {
                 name="state"
                 id="state"
                 placeholder="e.g. Middlesex"
+                value={data.state}
               />
             </div>
 
@@ -101,11 +124,14 @@ function Modal({ setShowModal }) {
                 name="postcode"
                 id="postcode"
                 placeholder="e.g. Middlesex"
+                value={data.post_code}
               />
             </div>
           </div>
           <div className="flex btns-box">
-            <button className="btn secondary-btn" onClick={handleCancel}>Cancel</button>
+            <button className="btn secondary-btn" onClick={handleCancel}>
+              Cancel
+            </button>
             <button className="btn primary-btn">Update</button>
           </div>
         </form>
