@@ -118,6 +118,7 @@ label {
 .error-message {
   color: var(--white);
   margin: 0;
+  font-size: 1.3rem;
 }
 
 input::-webkit-outer-spin-button,

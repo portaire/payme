@@ -4,4 +4,11 @@ const getDataService = () => {
     return service.get("/");
 };
 
-export default getDataService;
+const postDataService = (data) => {
+    return service.post("/", data);
+}
+
+export {
+    getDataService,
+    postDataService
+};

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getDataService from "../services/data.services";
+import { getDataService, postDataService } from "../services/data.services";
 import Card from "../svg/Card";
 import luhnValidation from "../utils/luhnValidation";
 
@@ -35,12 +35,28 @@ function Modal({ setShowModal }) {
     }
   };
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const isValid = luhnValidation(cardNum);
     setLuhnValid(isValid);
 
-    console.log(luhnValidation(cardNum));
+    if (!isValid) {
+      return;
+    }
+
+    const newData = {
+      address_one: address1,
+      address_two: address2,
+      state,
+      post_code: postCode,
+    };
+
+    try {
+      await postDataService(newData);
+      setShowModal(false);
+    } catch (error) {
+      throw error;
+    }
   };
 
   const handleCancel = () => {
@@ -129,7 +145,7 @@ function Modal({ setShowModal }) {
           <div className="column">
             <label htmlFor="country">Country</label>
             <select className="input select">
-              <option value="" disabled>
+              <option value="" disabled selected>
                 Select your Country
               </option>
               <option value="countryA">Country A</option>
