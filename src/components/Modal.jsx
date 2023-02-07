@@ -4,9 +4,11 @@ import Card from "../svg/Card";
 import luhnValidation from "../utils/luhnValidation";
 
 function Modal({ setShowModal }) {
+  const [data, setData] = useState({});
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
   const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
   const [postCode, setPostCode] = useState("");
   const [cardNum, setCardNum] = useState("");
   const [luhnValid, setLuhnValid] = useState(true);
@@ -14,6 +16,7 @@ function Modal({ setShowModal }) {
   const handleAddress1Change = (e) => setAddress1(e.target.value);
   const handleAddress2Change = (e) => setAddress2(e.target.value);
   const handleStateChange = (e) => setState(e.target.value);
+  const handleCountryChange = (e) => setCountry(e.target.value);
   const handlePostCodeChange = (e) => setPostCode(e.target.value);
   const handleCardNumChange = (e) => setCardNum(e.target.value);
 
@@ -26,6 +29,7 @@ function Modal({ setShowModal }) {
       const response = await getDataService();
       const randomData =
         response.data[Math.floor(Math.random() * response.data.length)];
+      setData(randomData);
       setAddress1(randomData.address_one);
       setAddress2(randomData.address_two);
       setState(randomData.state);
@@ -45,9 +49,13 @@ function Modal({ setShowModal }) {
     }
 
     const newData = {
+      email: data.email,
+      first_name: data.first_name,
+      last_name: data.last_name,
       address_one: address1,
       address_two: address2,
       state,
+      country,
       post_code: postCode,
     };
 
@@ -144,7 +152,7 @@ function Modal({ setShowModal }) {
           {/* Country input */}
           <div className="column">
             <label htmlFor="country">Country</label>
-            <select className="input select">
+            <select className="input select" onChange={handleCountryChange}>
               <option value="" disabled selected>
                 Select your Country
               </option>

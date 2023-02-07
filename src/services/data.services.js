@@ -6,7 +6,7 @@ const getDataService = () => {
 
 const postDataService = (data) => {
     return service.post("/", data);
-}
+};
 
 export {
     getDataService,
