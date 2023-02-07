@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import getDataService from "../services/data.services";
 import Card from "../svg/Card";
+import luhnValidation from "../utils/luhnValidation";
 
 function Modal({ setShowModal }) {
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
   const [state, setState] = useState("");
   const [postCode, setPostCode] = useState("");
+  const [cardNum, setCardNum] = useState("");
+  const [luhnValid, setLuhnValid] = useState(true);
 
   const handleAddress1Change = (e) => setAddress1(e.target.value);
   const handleAddress2Change = (e) => setAddress2(e.target.value);
   const handleStateChange = (e) => setState(e.target.value);
   const handlePostCodeChange = (e) => setPostCode(e.target.value);
+  const handleCardNumChange = (e) => setCardNum(e.target.value);
 
   useEffect(() => {
     getData();
@@ -31,6 +35,14 @@ function Modal({ setShowModal }) {
     }
   };
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const isValid = luhnValidation(cardNum);
+    setLuhnValid(isValid);
+
+    console.log(luhnValidation(cardNum));
+  };
+
   const handleCancel = () => {
     setShowModal(false);
   };
@@ -39,37 +51,52 @@ function Modal({ setShowModal }) {
     <div className="modal-window">
       <div className="modal-box">
         <h2>Update payment method</h2>
-        <form>
-          {/* Card input */}
-          <div className="card-input-box input">
-            <div className="card-box-1 flex">
-              <Card />
-              <input
-                className="inner-input"
-                type="number"
-                name="card"
-                id="card"
-                placeholder="Card number"
-              />
+        <form onSubmit={handleUpdate}>
+          <div className={luhnValid ? null : "error-box"}>
+            {/* Card input */}
+            <div
+              className={
+                luhnValid
+                  ? "card-input-box input"
+                  : "card-input-box input invalid-card"
+              }
+            >
+              <div className="card-box-1 flex">
+                <Card />
+                <input
+                  className="inner-input"
+                  type="number"
+                  name="card"
+                  id="card"
+                  placeholder="Card number"
+                  onChange={handleCardNumChange}
+                />
+              </div>
+              <div className="card-box-2">
+                <input
+                  className="inner-input exp-input"
+                  type="number"
+                  name="exp"
+                  id="exp"
+                  placeholder="MM/YY"
+                />
+                <input
+                  className="inner-input cvv-input"
+                  type="number"
+                  name="ccv"
+                  id="ccv"
+                  placeholder="CCV"
+                />
+              </div>
             </div>
-            <div className="card-box-2">
-              <input
-                className="inner-input exp-input"
-                type="number"
-                name="exp"
-                id="exp"
-                placeholder="MM/YY"
-              />
-              <input
-                className="inner-input cvv-input"
-                type="number"
-                name="ccv"
-                id="ccv"
-                placeholder="CCV"
-              />
-            </div>
-          </div>
 
+            {/* Error message */}
+            {luhnValid ? null : (
+              <div className="error-box-bg">
+                <p className="error-message">Card number incorrect</p>
+              </div>
+            )}
+          </div>
           {/* Address 1 input */}
           <div className="column">
             <label htmlFor="address1">Address line 1</label>
@@ -102,7 +129,7 @@ function Modal({ setShowModal }) {
           <div className="column">
             <label htmlFor="country">Country</label>
             <select className="input select">
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select your Country
               </option>
               <option value="countryA">Country A</option>
