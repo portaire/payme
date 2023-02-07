@@ -18,10 +18,9 @@ Even though there was just one element in the API, the GET request is getting a 
 If the card number is not validated with the Luhn Algorithm, the form will not allow to be sent and the card input will show an error message. The luhnValidation() utility is inside the utils folder
 [luhnValidation()](./src/utils/luhnValidation.js).
 
-The API requests are organized in the services folder. 
+There are two API requests (GET and POST) that are organized in the services folder. 
 [config.services](./src/services/config.services.js).
 [data.services](./src/services/data.services.js).
 
-The POST request should be uploading new info to the API, and even though the information it tries to post seems correct because it has all the changes it receives, I haven't been able to see the changes in the API... Would love to know why this is happening so I can fix it and not letting it happen again 😂. It really drove me crazy.
 
-Thank you very much for the oportunity, I really had a fun time working on this challenge.
+Thank you very much for the oportunity, I really had a fun time working on this challenge!
